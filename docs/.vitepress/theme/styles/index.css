@@ -1,0 +1,20 @@
+.vp-breadcrumbs {
+  padding: 0.4rem 0;
+}
+
+.site-title {
+  color: var(--vp-c-primary);
+  font-size: clamp(3rem, 5vw, 4rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+
+pre[class*=language-] {
+  font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+  .vp-breadcrumbs ul {
+    gap: 0.2rem;
+  }
+}

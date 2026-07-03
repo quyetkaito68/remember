@@ -1,0 +1,17 @@
+{
+  "name": "remember",
+  "private": true,
+  "type": "module",
+  "version": "0.1.0",
+  "description": "REMEMBER — Personal Knowledge Base built with VitePress.",
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "serve": "vitepress serve docs",
+    "preview": "vitepress preview docs"
+  },
+  "devDependencies": {
+    "vitepress": "^1.6.4",
+    "vitepress-plugin-mermaid": "^2.0.17"
+  }
+}
