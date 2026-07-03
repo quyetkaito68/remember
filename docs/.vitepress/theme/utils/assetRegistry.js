@@ -43,11 +43,14 @@ export async function getAssetsForRoute(routePath){
 export async function getAssetByUrl(url){
   const manifest = await loadManifest()
   // normalize
-  const u = url.startsWith('/') ? url : ('/' + url)
+  const norm = (u=>{ if (!u) return '/'; let s=u; if (!s.startsWith('/')) s='/'+s; if (s.endsWith('/') && s.length>1) s=s.slice(0,-1); return s })(url)
   for (const key of Object.keys(manifest)){
     const rec = manifest[key]
     for (const a of rec.assets || []){
-      if (a.url === u || ('/' + a.path) === u) return a
+      const au = a.url || ''
+      const araw = ('/' + (a.path||'')).replace(/\\/g,'/')
+      const an = au.endsWith('/') && au.length>1 ? au.slice(0,-1) : au
+      if (an === norm || araw === norm) return a
     }
   }
   return null

@@ -94,23 +94,36 @@ async function main(){
     const assets = entries.filter(e=>!isMarkdown(e.name) && !isHidden(e.name))
     if (assets.length === 0) {
       // still emit entry with markdown but empty assets
-      manifest['/' + dir.replace(/\\/g,'/').replace(/(^\.|^$)/,'').replace(/\\/g,'/')] = {
+      const key = '/' + dir.replace(/\\/g,'/').replace(/(^\.|^$)/,'').replace(/\\/g,'/')
+      manifest[key] = {
         markdown: mdFiles.map(m=>m.name),
         assets: []
       }
       continue
     }
     const list = []
+    // compute baseRoute for the folder (clean route)
+    let baseRoute
+    if (dir === '.' || dir === ''){
+      // use first markdown filename as base
+      const md = mdFiles[0]
+      baseRoute = '/' + md.name.replace(/\.md$/i, '')
+    } else {
+      baseRoute = '/' + dir.replace(/\\/g,'/')
+    }
+
     for (const a of assets) {
       try {
         const st = await fs.stat(a.full)
         const ext = path.extname(a.name)
         const type = detectType(ext)
         const git = gitLastCommitInfo(a.full)
+        const assetRoute = `${baseRoute}/assets/${encodeURIComponent(a.name)}/`
         list.push({
           name: a.name,
           path: a.rel.replace(/\\/g,'/'),
-          url: toUrl(a.rel),
+          url: assetRoute,
+          rawUrl: toUrl(a.rel),
           type,
           size: st.size,
           lastModified: git.lastModified,
@@ -120,7 +133,7 @@ async function main(){
         // ignore per-file errors
       }
     }
-    const key = '/' + dir.replace(/\\/g,'/')
+    const key = baseRoute
     manifest[key] = {
       markdown: mdFiles.map(m=>m.name),
       assets: list
@@ -135,20 +148,24 @@ async function main(){
   console.log('Public copy', PUBLIC_OUT_FILE)
 
   // Generate per-asset markdown pages under docs/.generated/assets
-  const GEN_PAGES_ROOT = path.join(DOCS, '.generated', 'assets')
+  // create clean route pages under docs/<topic>/assets/<filename>/index.md
   for (const key of Object.keys(manifest)){
     const rec = manifest[key]
     if (!rec.assets || rec.assets.length===0) continue
-    // key is like '/some/dir' or '/.'
-    const route = key === '/.' ? '/' : key
-    const relDir = route.replace(/^\//,'') || ''
+    // key is baseRoute like '/topic' or '/index'
+    const base = key.replace(/^\//,'') // '' for root
     for (const a of rec.assets){
-      const outDir = path.join(GEN_PAGES_ROOT, relDir)
+      // output folder: docs/<base>/assets/<filename>/index.md
+      const outDir = path.join(DOCS, base || '', 'assets', a.name)
       await fs.mkdir(outDir, {recursive:true})
-      const fileName = a.name + '.md'
-      const outPath = path.join(outDir, fileName)
+      const outPath = path.join(outDir, 'index.md')
       const title = a.name
-      const md = `---\ntitle: "${title}"\n---\n\n<AssetViewer assetPath="${a.url}" />\n`
+      // find siblings for prev/next
+      const siblings = rec.assets.map(x=>x.name).sort()
+      const idx = siblings.indexOf(a.name)
+      const prev = idx>0 ? `${key}/assets/${encodeURIComponent(siblings[idx-1])}/` : ''
+      const next = idx < siblings.length-1 ? `${key}/assets/${encodeURIComponent(siblings[idx+1])}/` : ''
+      const md = `---\ntitle: "${title}"\nassetPath: "${a.rawUrl}"\nassetUrl: "${a.url}"\nprev: "${prev}"\nnext: "${next}"\n---\n\n<AssetViewer assetPath="${a.url}" />\n`
       await fs.writeFile(outPath, md, 'utf8')
       console.log('Generated page', outPath)
     }

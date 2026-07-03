@@ -49,6 +49,4 @@ npm run serve
 
 ## Deployment
 
-This repository deploys `docs/.vitepress/dist` to the `gh-pages` branch using GitHub Actions when `main` or `master` is pushed.
-
-Update the repository edit link in `docs/.vitepress/config.js` after you create your GitHub repository.
+Github Page - GithubActions
