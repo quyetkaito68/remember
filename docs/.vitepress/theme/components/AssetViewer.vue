@@ -21,6 +21,7 @@
         <audio controls style="width:100%"><source :src="asset.url"></audio>
       </template>
       <template v-else-if="isText">
+        <div class="code-toolbar"><button @click="copyContent">{{ copied ? 'Copied!' : 'Copy Content' }}</button></div>
         <pre class="code-block"><code ref="codeEl">{{ content }}</code></pre>
       </template>
       <template v-else>
@@ -37,6 +38,7 @@ import { getAssetByUrl } from '../utils/assetRegistry'
 const props = defineProps({ assetPath: String })
 const asset = ref(null)
 const content = ref('')
+const copied = ref(false)
 
 function formatSize(n){ if (!n && n !==0) return ''
   const kb=1024
@@ -74,6 +76,14 @@ function copyLink(){
   navigator.clipboard?.writeText(u)
 }
 
+function copyContent(){
+  if (!content.value) return
+  navigator.clipboard?.writeText(content.value).then(() => {
+    copied.value = true
+    setTimeout(() => copied.value = false, 2000)
+  })
+}
+
 function formatDate(ts){ if (!ts) return ''
   const d = new Date(ts*1000)
   return d.toISOString().replace('T',' ').slice(0,19)
@@ -83,5 +93,8 @@ function formatDate(ts){ if (!ts) return ''
 <style>
 .asset-header h2{margin:.25rem 0}
 .meta{color:var(--vp-c-muted);font-size:.9rem}
+.code-toolbar{display:flex;justify-content:flex-end;margin-bottom:.25rem}
+.code-toolbar button{cursor:pointer;font-size:.8rem;padding:.2rem .6rem;border:1px solid var(--vp-c-divider);background:var(--vp-c-bg);border-radius:4px}
+.code-toolbar button:hover{background:var(--vp-c-bg-soft)}
 .code-block{background:var(--vp-canvas-subtle);padding:1rem;overflow:auto}
 </style>
