@@ -12,7 +12,7 @@ const PUBLIC_ROOT = path.join(DOCS, 'public')
 const PUBLIC_OUT_DIR = path.join(PUBLIC_ROOT, 'generated')
 const PUBLIC_OUT_FILE = path.join(PUBLIC_OUT_DIR, 'assets-manifest.json')
 
-const IGNORE_DIRS = new Set(['.vitepress', '.git', '.generated'])
+const IGNORE_DIRS = new Set(['.vitepress', '.git', '.generated', 'generated'])
 
 function isMarkdown(name) {
   return name.toLowerCase().endsWith('.md')
@@ -136,7 +136,8 @@ async function main(){
         const git = gitLastCommitInfo(a.full)
         const routePrefix = baseRoute === '/' ? '' : baseRoute
         const basePrefix = getBasePrefix()
-        const assetRoute = joinWithBase(basePrefix, `${routePrefix}/assets/${encodeURIComponent(a.name)}/`)
+        const genRoute = routePrefix === '' ? '/generated/assets' : `/generated/assets${routePrefix}`
+        const assetRoute = joinWithBase(basePrefix, `${genRoute}/${encodeURIComponent(a.name)}/`)
         const rawUrl = joinWithBase(basePrefix, toUrl(a.rel))
 
         // copy asset file into VitePress public so raw URLs are published
@@ -171,24 +172,21 @@ async function main(){
   console.log('Generated', OUT_FILE)
   console.log('Public copy', PUBLIC_OUT_FILE)
 
-  // Generate per-asset markdown pages under docs/.generated/assets
-  // create clean route pages under docs/<topic>/assets/<filename>/index.md
+  // Generate per-asset markdown pages under docs/generated/assets
   for (const key of Object.keys(manifest)){
     const rec = manifest[key]
     if (!rec.assets || rec.assets.length===0) continue
-    // key is baseRoute like '/topic' or '/index'
-    const base = key.replace(/^\//,'') // '' for root
+    const base = key.replace(/^\//,'')
     for (const a of rec.assets){
-      // output folder: docs/<base>/assets/<filename>/index.md
-      const outDir = path.join(DOCS, base || '', 'assets', a.name)
+      const outDir = path.join(DOCS, 'generated', 'assets', base || '', a.name)
       await fs.mkdir(outDir, {recursive:true})
       const outPath = path.join(outDir, 'index.md')
       const title = a.name
-      // find siblings for prev/next
       const siblings = rec.assets.map(x=>x.name).sort()
       const idx = siblings.indexOf(a.name)
-      const prev = idx>0 ? `${key}/assets/${encodeURIComponent(siblings[idx-1])}/` : ''
-      const next = idx < siblings.length-1 ? `${key}/assets/${encodeURIComponent(siblings[idx+1])}/` : ''
+      const genRoute = base === '' ? '/generated/assets' : `/generated/assets/${base}`
+      const prev = idx>0 ? `${genRoute}/${encodeURIComponent(siblings[idx-1])}/` : ''
+      const next = idx < siblings.length-1 ? `${genRoute}/${encodeURIComponent(siblings[idx+1])}/` : ''
       const md = `---\ntitle: "${title}"\nassetPath: "${a.rawUrl}"\nassetUrl: "${a.url}"\nprev: "${prev}"\nnext: "${next}"\n---\n\n<AssetViewer assetPath="${a.url}" />\n`
       await fs.writeFile(outPath, md, 'utf8')
       console.log('Generated page', outPath)

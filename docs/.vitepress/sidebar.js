@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 
 const docsRoot = path.resolve(__dirname, '..')
-const ignoredDirs = new Set(['.vitepress', 'assets'])
+const ignoredDirs = new Set(['.vitepress', 'generated'])
 
 function readFrontmatter(filePath) {
   const content = fs.readFileSync(filePath, 'utf-8')

@@ -19,7 +19,7 @@
       {
         "name": "check-intenet.bat",
         "path": "computer/network-internet/check-intenet.bat",
-        "url": "/computer/network-internet/assets/check-intenet.bat/",
+        "url": "/generated/assets/computer/network-internet/check-intenet.bat/",
         "rawUrl": "/computer/network-internet/check-intenet.bat",
         "type": "batch",
         "size": 315,
@@ -46,7 +46,7 @@
       {
         "name": "dump-database.bat",
         "path": "database/mysql/dump-database.bat",
-        "url": "/database/mysql/assets/dump-database.bat/",
+        "url": "/generated/assets/database/mysql/dump-database.bat/",
         "rawUrl": "/database/mysql/dump-database.bat",
         "type": "batch",
         "size": 651,
@@ -63,7 +63,7 @@
       {
         "name": "favicon.svg",
         "path": "favicon.svg",
-        "url": "/assets/favicon.svg/",
+        "url": "/generated/assets/favicon.svg/",
         "rawUrl": "/favicon.svg",
         "type": "image",
         "size": 544,
@@ -87,7 +87,7 @@
       {
         "name": "config.json",
         "path": "organization-file/config.json",
-        "url": "/organization-file/assets/config.json/",
+        "url": "/generated/assets/organization-file/config.json/",
         "rawUrl": "/organization-file/config.json",
         "type": "json",
         "size": 766,
@@ -97,7 +97,7 @@
       {
         "name": "organize.ps1",
         "path": "organization-file/organize.ps1",
-        "url": "/organization-file/assets/organize.ps1/",
+        "url": "/generated/assets/organization-file/organize.ps1/",
         "rawUrl": "/organization-file/organize.ps1",
         "type": "powershell",
         "size": 3263,
@@ -107,7 +107,7 @@
       {
         "name": "organize_run.bat",
         "path": "organization-file/organize_run.bat",
-        "url": "/organization-file/assets/organize_run.bat/",
+        "url": "/generated/assets/organization-file/organize_run.bat/",
         "rawUrl": "/organization-file/organize_run.bat",
         "type": "batch",
         "size": 1278,
