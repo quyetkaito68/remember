@@ -28,10 +28,40 @@ function normalizeLink(value) {
   return value.replace(/\/+/g, '/').replace(/\/\s*$/, '/')
 }
 
+function getEntryOrder(directory, entry) {
+  const entryPath = path.join(directory, entry.name)
+  if (entry.isDirectory()) {
+    const indexFile = path.join(entryPath, 'index.md')
+    if (fs.existsSync(indexFile)) {
+      const metadata = readFrontmatter(indexFile)
+      return metadata.order !== undefined ? Number(metadata.order) : undefined
+    }
+    return undefined
+  }
+  if (entry.name.endsWith('.md')) {
+    const metadata = readFrontmatter(entryPath)
+    return metadata.order !== undefined ? Number(metadata.order) : undefined
+  }
+  return undefined
+}
+
 function buildSidebar(directory, route = '') {
-  const entries = fs.readdirSync(directory, { withFileTypes: true })
+  const rawEntries = fs.readdirSync(directory, { withFileTypes: true })
     .filter((entry) => !entry.name.startsWith('.') && !ignoredDirs.has(entry.name))
-    .sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true, sensitivity: 'base' }))
+
+  const entriesWithOrder = rawEntries.map((entry) => ({
+    entry,
+    order: getEntryOrder(directory, entry),
+  }))
+
+  entriesWithOrder.sort((a, b) => {
+    const orderA = a.order ?? 999
+    const orderB = b.order ?? 999
+    if (orderA !== orderB) return orderA - orderB
+    return a.entry.name.localeCompare(b.entry.name, undefined, { numeric: true, sensitivity: 'base' })
+  })
+
+  const entries = entriesWithOrder.map(({ entry }) => entry)
 
   const groups = []
 

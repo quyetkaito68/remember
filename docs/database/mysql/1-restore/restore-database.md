@@ -2,6 +2,7 @@
 title: Restore MySQL Database
 description: Khôi phục database MySQL từ file dump .sql bằng command mysql.
 tags: [mysql, restore, database, backup]
+category: database
 updated: 2026-07-05
 ---
 

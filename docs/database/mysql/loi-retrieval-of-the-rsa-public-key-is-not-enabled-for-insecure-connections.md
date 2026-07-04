@@ -1,4 +1,13 @@
-retrieval of the rsa public key is not enabled for insecure connections
+---
+title: 'Lỗi: retrieval of the rsa public key is not enabled for insecure connections'
+description: Nguyên nhân và cách khắc phục lỗi RSA public key trong MySQL khi kết nối không an toàn.
+tags: [mysql, ssl, rsa, connection-error]
+category: database
+order: 9999
+updated: 2026-07-05
+---
+
+# retrieval of the rsa public key is not enabled for insecure connections
 - lỗi này hiện chưa rõ nguyên nhân
 - gặp 1 lần ở production: khi stop mysqld đi và switch được sang con master2 thì khi start lại master1 thì dính lỗi luôn
 - khắc phục: trong máy chủ mở dbforce ra close connection đi và open lại là được

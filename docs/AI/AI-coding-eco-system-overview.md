@@ -1,3 +1,12 @@
+---
+title: AI Coding Ecosystem Handbook
+description: Tổng quan hệ sinh thái AI Coding từ Model, Runtime, API, Coding Agent đến IDE.
+tags: [ai, coding, ecosystem, model, agent]
+category: ai
+order: 1
+updated: 2026-07-05
+---
+
 # AI Coding Ecosystem Handbook
 
 > Phiên bản: 2026

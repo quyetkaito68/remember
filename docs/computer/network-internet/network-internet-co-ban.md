@@ -1,3 +1,11 @@
+---
+title: Network & Internet Cơ Bản
+description: Kiến thức cơ bản về mạng máy tính và internet, bao gồm ISP, DNS, địa chỉ IP và các giao thức mạng.
+tags: [network, internet, networking-basics]
+category: computer
+updated: 2026-07-05
+---
+
 # 📘 Network & Internet Cơ Bản
 
 ## 1. Internet là gì?

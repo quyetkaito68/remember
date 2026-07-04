@@ -2,6 +2,7 @@
 title: Backup MySQL Database với mysqldump
 description: Script dump database MySQL tự động backup cấu trúc, procedures và triggers.
 tags: [mysql, backup, mysqldump, database]
+category: database
 updated: 2026-07-05
 ---
 

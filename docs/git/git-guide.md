@@ -1,3 +1,11 @@
+---
+title: Hướng dẫn sử dụng Git
+description: Hướng dẫn cơ bản về Git, từ khởi tạo repository, cấu hình người dùng đến đẩy mã nguồn lên GitHub.
+tags: [git, github, version-control]
+category: git
+updated: 2026-07-05
+---
+
 # Hướng dẫn sử dụng Git: Khởi tạo và đẩy mã nguồn lên GitHub
 
 ## 1. Khởi tạo Git trong thư mục dự án

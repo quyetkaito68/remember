@@ -1,3 +1,11 @@
+---
+title: Organization File Tool
+description: Công cụ tự động phân loại và di chuyển file theo loại vào các thư mục đích trên Windows.
+tags: [file-organization, automation, powershell]
+category: organization-file
+updated: 2026-07-05
+---
+
 # Organization File Tool
 
 Tự động phân loại và di chuyển file theo loại vào các thư mục đích.

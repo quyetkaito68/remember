@@ -1,3 +1,11 @@
+---
+title: Triển khai ứng dụng React + Vite lên GitHub Pages
+description: Hướng dẫn triển khai ứng dụng React TypeScript với Vite lên GitHub Pages sử dụng GitHub Actions CI/CD.
+tags: [react, vite, github-pages, ci-cd]
+category: git
+updated: 2026-07-05
+---
+
 # Triển khai ứng dụng React + Vite lên GitHub Pages
 
 ## 1. Mục tiêu

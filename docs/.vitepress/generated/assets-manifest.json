@@ -46,8 +46,8 @@
         "rawUrl": "/database/mysql/0-backup/dump-database.bat",
         "type": "batch",
         "size": 651,
-        "lastModified": null,
-        "sha": null
+        "lastModified": 1783188104,
+        "sha": "dcc12e712772830beba2ff0f552f679dabc7afc7"
       }
     ]
   },
@@ -63,8 +63,8 @@
         "rawUrl": "/database/mysql/1-restore/restore-database.bat",
         "type": "batch",
         "size": 95,
-        "lastModified": null,
-        "sha": null
+        "lastModified": 1783188104,
+        "sha": "dcc12e712772830beba2ff0f552f679dabc7afc7"
       }
     ]
   },

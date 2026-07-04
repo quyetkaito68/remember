@@ -2,6 +2,8 @@
 title: Collation & Character Set trong MySQL
 description: Tổng quan về character set và collation trong MySQL, cách kiểm tra và xử lý lỗi khi so sánh.
 tags: [mysql, collation, charset, database]
+category: database
+order: 5
 updated: 2026-07-05
 ---
 
