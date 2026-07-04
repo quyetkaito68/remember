@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vitepress'
 import { getAssetsForRoute } from '../utils/assetRegistry'
 
@@ -29,9 +29,18 @@ function formatSize(n){ if (!n && n !== 0) return ''
   return Math.round(n/(kb*kb)) + ' MB'
 }
 
-onMounted(async ()=>{
+async function loadAssetsForCurrentRoute() {
+  assets.value = []
   const list = await getAssetsForRoute(route.path)
   assets.value = list
+}
+
+onMounted(() => {
+  loadAssetsForCurrentRoute()
+})
+
+watch(() => route.path, () => {
+  loadAssetsForCurrentRoute()
 })
 </script>
 

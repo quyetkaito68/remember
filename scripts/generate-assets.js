@@ -7,11 +7,12 @@ const ROOT = process.cwd()
 const DOCS = path.join(ROOT, 'docs')
 const OUT_DIR = path.join(DOCS, '.vitepress', 'generated')
 const OUT_FILE = path.join(OUT_DIR, 'assets-manifest.json')
-// also write to public so VitePress will copy to site root at /generated/
-const PUBLIC_OUT_DIR = path.join(DOCS, '.vitepress', 'public', 'generated')
+// copy the manifest to docs/public/generated so VitePress will include it in the final dist
+const PUBLIC_ROOT = path.join(DOCS, 'public')
+const PUBLIC_OUT_DIR = path.join(PUBLIC_ROOT, 'generated')
 const PUBLIC_OUT_FILE = path.join(PUBLIC_OUT_DIR, 'assets-manifest.json')
 
-const IGNORE_DIRS = new Set(['.vitepress', '.git'])
+const IGNORE_DIRS = new Set(['.vitepress', '.git', '.generated'])
 
 function isMarkdown(name) {
   return name.toLowerCase().endsWith('.md')
@@ -39,6 +40,7 @@ async function walk(dir) {
   const entries = await fs.readdir(dir, {withFileTypes:true})
   for (const ent of entries) {
     if (IGNORE_DIRS.has(ent.name)) continue
+    if (ent.isDirectory() && ent.name === 'assets') continue
     const full = path.join(dir, ent.name)
     if (ent.isDirectory()) {
       res.push(...await walk(full))
@@ -92,24 +94,23 @@ async function main(){
     if (mdFiles.length === 0) continue
     // identify assets: any non-md files in the same dir
     const assets = entries.filter(e=>!isMarkdown(e.name) && !isHidden(e.name))
+    const list = []
+    // compute baseRoute for the folder (clean route)
+    let baseRoute
+    if (dir === '.' || dir === '') {
+      const md = mdFiles[0]
+      baseRoute = md.name.toLowerCase() === 'index.md' ? '/' : '/' + md.name.replace(/\.md$/i, '')
+    } else {
+      baseRoute = '/' + dir.replace(/\\/g,'/')
+    }
+
     if (assets.length === 0) {
       // still emit entry with markdown but empty assets
-      const key = '/' + dir.replace(/\\/g,'/').replace(/(^\.|^$)/,'').replace(/\\/g,'/')
-      manifest[key] = {
+      manifest[baseRoute] = {
         markdown: mdFiles.map(m=>m.name),
         assets: []
       }
       continue
-    }
-    const list = []
-    // compute baseRoute for the folder (clean route)
-    let baseRoute
-    if (dir === '.' || dir === ''){
-      // use first markdown filename as base
-      const md = mdFiles[0]
-      baseRoute = '/' + md.name.replace(/\.md$/i, '')
-    } else {
-      baseRoute = '/' + dir.replace(/\\/g,'/')
     }
 
     for (const a of assets) {
@@ -118,12 +119,20 @@ async function main(){
         const ext = path.extname(a.name)
         const type = detectType(ext)
         const git = gitLastCommitInfo(a.full)
-        const assetRoute = `${baseRoute}/assets/${encodeURIComponent(a.name)}/`
+        const routePrefix = baseRoute === '/' ? '' : baseRoute
+        const assetRoute = `${routePrefix}/assets/${encodeURIComponent(a.name)}/`
+        const rawUrl = toUrl(a.rel)
+
+        // copy asset file into VitePress public so raw URLs are published
+        const publicOutPath = path.join(PUBLIC_ROOT, a.rel)
+        await fs.mkdir(path.dirname(publicOutPath), {recursive:true})
+        await fs.copyFile(a.full, publicOutPath)
+
         list.push({
           name: a.name,
           path: a.rel.replace(/\\/g,'/'),
           url: assetRoute,
-          rawUrl: toUrl(a.rel),
+          rawUrl,
           type,
           size: st.size,
           lastModified: git.lastModified,
@@ -133,8 +142,7 @@ async function main(){
         // ignore per-file errors
       }
     }
-    const key = baseRoute
-    manifest[key] = {
+    manifest[baseRoute] = {
       markdown: mdFiles.map(m=>m.name),
       assets: list
     }

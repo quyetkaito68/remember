@@ -1,0 +1,24 @@
+{
+  "rules": [
+    {
+      "name": "Hinh anh",
+      "extensions": [".jpg", ".jpeg", ".png", ".gif", ".webp", ".bmp", ".tiff", ".svg", ".heic", ".raw"],
+      "destination": "F:\\Pictures"
+    },
+    {
+      "name": "Video",
+      "extensions": [".mp4", ".mkv", ".avi", ".mov", ".wmv", ".flv", ".mpeg", ".mp3", ".webm", ".vob"],
+      "destination": "F:\\Videos"
+    },
+    {
+      "name": "Tai lieu",
+      "extensions": [".pdf", ".doc", ".docx", ".xls", ".xlsx", ".xlsm", ".ppt", ".pptx", ".txt", ".csv" , ".odt", ".ods", ".odp"],
+      "destination": "F:\\Documents"
+    },
+    {
+      "name": "Am thanh",
+      "extensions": [".mp3", ".wav", ".flac", ".aac", ".ogg", ".wma", ".m4a", ".alac", ".aiff", ".opus"],
+      "destination": "F:\\Audio-Music"
+    }
+  ]
+}

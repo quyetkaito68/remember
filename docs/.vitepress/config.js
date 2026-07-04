@@ -5,7 +5,9 @@ import { withMermaid } from 'vitepress-plugin-mermaid'
 import { createNav, createSidebar } from './sidebar.js'
 
 const repository = process.env.GITHUB_REPOSITORY || ''
-const base = process.env.VITEPRESS_BASE || (repository ? `/${repository.split('/')[1]}/` : '/')
+const repoName = repository ? repository.split('/')[1] : 'remember'
+const isCI = process.env.CI === 'true' || process.env.CI === '1'
+const base = process.env.VITEPRESS_BASE || (isCI ? `/${repoName}/` : '/')
 
 export default withMermaid(
   defineConfig({

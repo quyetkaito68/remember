@@ -24,16 +24,15 @@
         <pre class="code-block"><code ref="codeEl">{{ content }}</code></pre>
       </template>
       <template v-else>
-        <p>No preview available. <a :href="asset.url" download>Download</a></p>
+        <p>No preview available. <a :href="asset.rawUrl || asset.url" download>Download</a></p>
       </template>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, computed } from 'vue'
 import { getAssetByUrl } from '../utils/assetRegistry'
-import { useData } from 'vitepress'
 
 const props = defineProps({ assetPath: String })
 const asset = ref(null)
@@ -55,7 +54,7 @@ onMounted(async ()=>{
   const ext = a.name.includes('.') ? '.' + a.name.split('.').pop().toLowerCase() : ''
   if (isTextExt(ext)){
     try {
-      const res = await fetch(a.url)
+      const res = await fetch(a.rawUrl || a.url)
       if (res.ok) content.value = await res.text()
     } catch(e){}
   }
@@ -67,10 +66,10 @@ const isVideo = computed(()=> asset.value && asset.value.type === 'video')
 const isAudio = computed(()=> asset.value && asset.value.type === 'audio')
 const isText = computed(()=> asset.value && ['powershell','batch','shell','sql','json','xml','yaml','ini','registry','env','file'].includes(asset.value.type) || (asset.value && asset.value.name && asset.value.name.match(/\.(txt|md|js|ts|py|java|c|cpp|css|html)$/i)))
 
-const githubRawUrl = computed(()=> asset.value ? asset.value.url : '')
+const githubRawUrl = computed(()=> asset.value ? asset.value.rawUrl || asset.value.url : '')
 
 function copyLink(){
-  const u = asset.value ? location.origin + asset.value.url : ''
+  const u = asset.value ? location.origin + (asset.value.rawUrl || asset.value.url) : ''
   if (!u) return
   navigator.clipboard?.writeText(u)
 }

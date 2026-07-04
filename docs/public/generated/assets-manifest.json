@@ -1,30 +1,4 @@
 {
-  "/generated/assets/computer/network-internet": {
-    "markdown": [
-      "check-intenet.bat.md"
-    ],
-    "assets": []
-  },
-  "/generated/assets/database/mysql": {
-    "markdown": [
-      "dump-database.bat.md"
-    ],
-    "assets": []
-  },
-  "/generated/assets": {
-    "markdown": [
-      "favicon.svg.md"
-    ],
-    "assets": []
-  },
-  "/generated/assets/organization-file": {
-    "markdown": [
-      "config.json.md",
-      "organize.ps1.md",
-      "organize_run.bat.md"
-    ],
-    "assets": []
-  },
   "/AI/agent": {
     "markdown": [
       "claude-code-free.md"
@@ -34,12 +8,6 @@
   "/AI": {
     "markdown": [
       "AI-coding-eco-system-overview.md"
-    ],
-    "assets": []
-  },
-  "/computer/network-internet/assets/check-intenet.bat": {
-    "markdown": [
-      "index.md"
     ],
     "assets": []
   },
@@ -66,12 +34,6 @@
     ],
     "assets": []
   },
-  "/database/mysql/assets/dump-database.bat": {
-    "markdown": [
-      "index.md"
-    ],
-    "assets": []
-  },
   "/database/mysql": {
     "markdown": [
       "collation-charset.md",
@@ -93,7 +55,7 @@
       }
     ]
   },
-  "/index": {
+  "/": {
     "markdown": [
       "index.md"
     ],
@@ -101,7 +63,7 @@
       {
         "name": "favicon.svg",
         "path": "favicon.svg",
-        "url": "/index/assets/favicon.svg/",
+        "url": "/assets/favicon.svg/",
         "rawUrl": "/favicon.svg",
         "type": "image",
         "size": 544,
@@ -114,30 +76,6 @@
     "markdown": [
       "git-guide.md",
       "github-page.md"
-    ],
-    "assets": []
-  },
-  "/index/assets/favicon.svg": {
-    "markdown": [
-      "index.md"
-    ],
-    "assets": []
-  },
-  "/organization-file/assets/config.json": {
-    "markdown": [
-      "index.md"
-    ],
-    "assets": []
-  },
-  "/organization-file/assets/organize.ps1": {
-    "markdown": [
-      "index.md"
-    ],
-    "assets": []
-  },
-  "/organization-file/assets/organize_run.bat": {
-    "markdown": [
-      "index.md"
     ],
     "assets": []
   },
