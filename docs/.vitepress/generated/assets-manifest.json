@@ -34,26 +34,48 @@
     ],
     "assets": []
   },
+  "/database/mysql/0-backup": {
+    "markdown": [
+      "dump-database.md"
+    ],
+    "assets": [
+      {
+        "name": "dump-database.bat",
+        "path": "database/mysql/0-backup/dump-database.bat",
+        "url": "/generated/assets/database/mysql/0-backup/dump-database.bat/",
+        "rawUrl": "/database/mysql/0-backup/dump-database.bat",
+        "type": "batch",
+        "size": 651,
+        "lastModified": null,
+        "sha": null
+      }
+    ]
+  },
+  "/database/mysql/1-restore": {
+    "markdown": [
+      "restore-database.md"
+    ],
+    "assets": [
+      {
+        "name": "restore-database.bat",
+        "path": "database/mysql/1-restore/restore-database.bat",
+        "url": "/generated/assets/database/mysql/1-restore/restore-database.bat/",
+        "rawUrl": "/database/mysql/1-restore/restore-database.bat",
+        "type": "batch",
+        "size": 95,
+        "lastModified": null,
+        "sha": null
+      }
+    ]
+  },
   "/database/mysql": {
     "markdown": [
       "collation-charset.md",
       "kiem-tra-collation.md",
       "loi-retrieval-of-the-rsa-public-key-is-not-enabled-for-insecure-connections.md",
-      "restore-database.md",
       "xu-ly-collation-mix.md"
     ],
-    "assets": [
-      {
-        "name": "dump-database.bat",
-        "path": "database/mysql/dump-database.bat",
-        "url": "/generated/assets/database/mysql/dump-database.bat/",
-        "rawUrl": "/database/mysql/dump-database.bat",
-        "type": "batch",
-        "size": 651,
-        "lastModified": 1783098877,
-        "sha": "ab214d9e66930951c77fc603875c53f22dc3a0b7"
-      }
-    ]
+    "assets": []
   },
   "/": {
     "markdown": [
