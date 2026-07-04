@@ -6,8 +6,8 @@
         <span class="asset-name">📄 {{ a.name }}</span>
         <span class="asset-meta">{{ a.type }} · {{ formatSize(a.size) }}</span>
         <span class="asset-actions">
-          <a :href="a.rawUrl || a.url" target="_blank" rel="noopener" download>Download</a>
-          <a :href="a.rawUrl || a.url" target="_blank" rel="noopener">Raw</a>
+          <a :href="a.rawUrl" target="_blank" rel="noopener" download>Download</a>
+          <a :href="a.url" target="_blank" rel="noopener">Raw</a>
         </span>
       </li>
     </ul>
