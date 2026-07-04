@@ -2,7 +2,7 @@
 title: REMEMBER
 description: A personal knowledge base with Markdown as the only source of truth.
 tags: [home, wiki]
-updated: 2026-07-03
+updated: 2026-07-05
 ---
 
 # <span class="site-title">HOMEPAGE</span>
@@ -32,9 +32,9 @@ Website tĩnh
     - phát hiện page Markdown,
     - phát hiện asset liên quan,
     - sinh manifest JSON,
-    - tạo route cho asset page,
-    - publish asset vào output tĩnh để browser có thể truy cập.
-4. VitePress đọc Markdown và render thành HTML.
+    - sinh asset pages vào docs/generated/assets/,
+    - publish asset vào docs/public/ để browser có thể truy cập.
+4. VitePress đọc Markdown (cả content gốc và generated) và render thành HTML.
 5. Theme trong index.js chèn giao diện như panel liên quan và viewer.
 6. Khi người dùng mở trang, browser sẽ fetch manifest rồi render UI.
 
@@ -154,107 +154,127 @@ Website Online
 
 ## Tính năng preview cả file script đính kèm file markdown chính
 
-Lý do hiện tại phải copy assets file vào docs/public là vì build của VitePress tạo ra một output tĩnh riêng, chủ yếu là HTML/CSS/JS. Các file gốc nằm trong thư mục markdown ban đầu không tự động “được expose” như một URL có thể tải trực tiếp từ browser sau khi deploy.
+Lý do phải copy assets file vào docs/public là vì build của VitePress tạo ra output tĩnh (HTML/CSS/JS). Các file gốc nằm trong thư mục markdown không tự động được expose như URL có thể tải trực tiếp từ browser.
 
 ```
-+------------------------------+
-|  Source content (docs/)      |
-|  - page.md                   |
-|  - asset files (.bat, .ps1) |
-+--------------+---------------+
-               |
-               v
-+------------------------------+
-|  Generate step               |
-|  - scan folders              |
-|  - detect page + asset       |
-|  - create manifest           |
-|  - create asset routes       |
-|  - copy/publish assets       |
-+--------------+---------------+
-               |
-               v
-+------------------------------+
-|  VitePress build             |
-|  - Markdown -> HTML          |
-|  - inject theme components  |
-+--------------+---------------+
-               |
-               v
-+------------------------------+
-|  Static output (dist/)       |
-|  - html/css/js/assets        |
-+--------------+---------------+
-               |
-               v
-+------------------------------+
-|  Browser                     |
-|  - load page                 |
-|  - fetch manifest           |
-|  - show Related Files/UI    |
-+------------------------------+
++------------------------------------+
+|  Source content (docs/)            |
+|  - page.md                         |
+|  - asset files (.bat, .ps1)        |
++---------------+--------------------+
+                |
+                v
++------------------------------------+
+|  Generate assets                   |
+|  - scan folders                    |
+|  - detect page + asset             |
+|  - create manifest (.vitepress/)   |
+|  - copy/publish assets (public/)   |
+|  - create asset pages (generated/) |
++---------------+--------------------+
+                |
+                v
++------------------------------------+
+|  VitePress build                   |
+|  - content gốc từ <topic>/        |
+|  - asset pages từ generated/      |
+|  - Markdown -> HTML                |
+|  - inject theme components        |
++---------------+--------------------+
+                |
+                v
++------------------------------------+
+|  Static output (dist/)             |
+|  - html/css/js/assets              |
++---------------+--------------------+
+                |
+                v
++------------------------------------+
+|  Browser                           |
+|  - load page                       |
+|  - fetch manifest                  |
+|  - show Related Files / AssetViewer|
++------------------------------------+
 ```
 
 ## 1. Repository Layout
 ```
+docs/                          # Thư mục gốc của VitePress
+
+├── .vitepress/                # Config, theme, components (source code web)
+├── public/                    # Raw assets được copy vào để serve (gitignored, tự sinh)
+├── generated/                 # Asset pages được sinh tự động (gitignored, tự sinh)
+│   └── assets/
+│       └── <topic>/
+│           └── <file>/index.md
+│
+├── <topic>/                   # CHỈ chứa content thuần của bạn
+│   ├── *.md                   #   Main Document
+│   └── *.bat, *.ps1, ...     #   Asset files đi kèm
+│
+├── favicon.svg
+└── index.md
+```
+
+Ví dụ cụ thể:
+```
 docs/
 
 ├── computer/
-│
 │   ├── windows/
-│   │
-│   │   ├── clean-temp/
-│   │   │
-│   │   │   clean-temp.md        <-- Main Document
-│   │   │   clean-temp.bat       <-- Asset Document
-│   │   │   clean-temp.ps1
-│   │   │   clean-temp.sql
-│   │   │   clean-temp.png
-│   │   │
-│   │   └── firewall/
-│   │
-│   └── linux/
+│   │   ├── don-dep-appdata-windows.md
+│   │   └── ...
+│   └── network-internet/
+│       ├── network-internet-co-ban.md
+│       └── check-intenet.bat
 │
-└── .vitepress/
+├── database/
+│   └── mysql/
+│       ├── collation-charset.md
+│       ├── restore-database.md
+│       └── dump-database.bat
+│
+├── organization-file/
+│   ├── README.md
+│   ├── config.json
+│   ├── organize.ps1
+│   └── organize_run.bat
+│
+└── ...
 ```
 
 ## 2. Build Flow
 ```
-                   npm run docs:build
+                   npm run build
+                   (generate-assets + vitepress build)
 
                            │
 
                            ▼
 
-             Asset Manifest Generator
-
-                           │
-
-        Scan every folder inside docs/
-
-                           │
-
-                           ▼
-
-        Detect Main Document (.md)
+              Scan every folder inside docs/
+              (bỏ qua .vitepress, public, generated)
 
                            │
 
                            ▼
 
-      Detect Related Asset Documents
+         Detect Main Document (.md) + Related Assets
 
                            │
 
                            ▼
 
-      Build assets-manifest.json
+              Build assets-manifest.json
+              Copy raw assets → docs/public/
+              Sinh asset pages → docs/generated/assets/
 
                            │
 
                            ▼
 
-        Generate Static Website
+                   VitePress build
+              Markdown → HTML + CSS + JS
 ```
 
 ## 3. Manifest
