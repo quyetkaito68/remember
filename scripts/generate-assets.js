@@ -65,6 +65,21 @@ function gitLastCommitInfo(filePath) {
   return {lastModified:null, sha:null}
 }
 
+function getBasePrefix() {
+  const fromEnv = process.env.VITEPRESS_BASE || process.env.BASE_PATH || ''
+  if (fromEnv) return fromEnv
+  const repository = process.env.GITHUB_REPOSITORY || ''
+  const repoName = repository.split('/')[1]
+  return repoName ? `/${repoName}/` : '/'
+}
+
+function joinWithBase(basePrefix, pathValue) {
+  const normalizedPath = pathValue.startsWith('/') ? pathValue : `/${pathValue}`
+  if (!basePrefix || basePrefix === '/') return normalizedPath
+  const normalizedBase = basePrefix.replace(/\/+$/, '')
+  return `${normalizedBase}${normalizedPath}`
+}
+
 function toUrl(relPath) {
   // Convert file path under docs to a URL path
   let p = relPath.replace(/\\/g, '/')
@@ -120,8 +135,9 @@ async function main(){
         const type = detectType(ext)
         const git = gitLastCommitInfo(a.full)
         const routePrefix = baseRoute === '/' ? '' : baseRoute
-        const assetRoute = `${routePrefix}/assets/${encodeURIComponent(a.name)}/`
-        const rawUrl = toUrl(a.rel)
+        const basePrefix = getBasePrefix()
+        const assetRoute = joinWithBase(basePrefix, `${routePrefix}/assets/${encodeURIComponent(a.name)}/`)
+        const rawUrl = joinWithBase(basePrefix, toUrl(a.rel))
 
         // copy asset file into VitePress public so raw URLs are published
         const publicOutPath = path.join(PUBLIC_ROOT, a.rel)
