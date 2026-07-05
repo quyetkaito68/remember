@@ -15,6 +15,7 @@
 | `docs/.vitepress/generated/` | Auto-generated `assets-manifest.json` (gitignored). |
 | `docs/public/` | Copied assets at build time (gitignored). |
 | `docs/generated/` | Auto-generated asset viewer pages (gitignored). |
+| `templates/` | **New.** Markdown templates per content type — pick the right one for each new file. |
 | `scripts/` | `generate-assets.js` — scans `docs/`, builds manifest, copies assets, generates pages. |
 | `.github/workflows/` | `deploy.yml` — CI/CD to GitHub Pages. |
 
@@ -47,6 +48,19 @@ Browser:
 - All markdown files use frontmatter: `title`, `description`, `tags`, `category`, `updated`, `order`.
 - `order` in frontmatter controls sidebar sort position.
 - Create `index.md` in a folder to make it appear in the top nav bar.
+
+## Markdown Templates
+
+Standard templates for writing content are at `templates/`. Pick the right template for your content type:
+
+| Template | Use Case |
+|----------|----------|
+| `templates/tutorial-guide.template.md` | Step-by-step guides (Git, Windows, Network) |
+| `templates/topic-overview.template.md` | Broad topic overviews, architecture (AI ecosystem) |
+| `templates/technical-reference.template.md` | Technical problems, diagnosis, fixes (MySQL errors) |
+| `templates/script-documentation.template.md` | Scripts, tools, config files (backup, clean-temp) |
+
+**How to use:** Copy the `.template.md` to your target folder, rename to `<slug>.md`, fill in content following the `<!-- AI: … -->` comments, then remove those comments.
 
 ## Build Commands
 

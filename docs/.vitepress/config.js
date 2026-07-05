@@ -57,6 +57,16 @@ export default withMermaid(
     markdown: {
       lineNumbers: true,
       theme: 'github-dark',
+      anchor: {
+        slugify: (str) => {
+          return str
+            .replace(/&/g, '')
+            .replace(/[^\p{L}\p{N}\s]+/gu, '')
+            .replace(/ /g, '-')
+            .replace(/^-+|-+$/g, '')
+            .toLowerCase()
+        },
+      },
     },
     vite: {
       resolve: {
