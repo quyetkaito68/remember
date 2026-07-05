@@ -97,6 +97,7 @@
   },
   "/git": {
     "markdown": [
+      "git-command.md",
       "git-guide.md",
       "github-page.md"
     ],
