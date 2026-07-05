@@ -217,6 +217,27 @@ git config --global --edit
 
 ---
 
+## .gitignore — File đã track vẫn bị theo dõi
+
+`.gitignore` chỉ bỏ qua **untracked files**. Nếu file đã được commit (tracked), git vẫn theo dõi thay đổi dù có trong `.gitignore`.
+
+```bash
+# Kiểm tra file nào đang được track trong thư mục
+git ls-files --cached 'path/to/folder/'
+
+# Untrack file (giữ nguyên file vật lý)
+git rm --cached path/to/file
+
+# Untrack cả thư mục
+git rm --cached -r path/to/folder/
+```
+
+Sau khi untrack, commit thay đổi, các lần sau git sẽ bỏ qua file đó.
+
+> **Nguyên nhân:** Git cache index riêng, `.gitignore` không ảnh hưởng đến index. Phải dùng `git rm --cached` để xoá khỏi index.
+
+---
+
 ## Tham khảo thêm
 
 - [Git Documentation — toàn bộ lệnh](https://git-scm.com/docs)
