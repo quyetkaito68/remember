@@ -12,6 +12,12 @@
     ],
     "assets": []
   },
+  "/computer/linux": {
+    "markdown": [
+      "vim-command.md"
+    ],
+    "assets": []
+  },
   "/computer/network-internet": {
     "markdown": [
       "network-internet-co-ban.md"
