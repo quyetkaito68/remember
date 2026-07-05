@@ -137,5 +137,22 @@
         "sha": "ab214d9e66930951c77fc603875c53f22dc3a0b7"
       }
     ]
+  },
+  "/utilities-script": {
+    "markdown": [
+      "clean-temp.md"
+    ],
+    "assets": [
+      {
+        "name": "clean-temp.bat",
+        "path": "utilities-script/clean-temp.bat",
+        "url": "/generated/assets/utilities-script/clean-temp.bat/",
+        "rawUrl": "/utilities-script/clean-temp.bat",
+        "type": "batch",
+        "size": 727,
+        "lastModified": null,
+        "sha": null
+      }
+    ]
   }
 }
