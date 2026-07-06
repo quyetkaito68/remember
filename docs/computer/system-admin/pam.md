@@ -1,5 +1,5 @@
 ---
-title: 'Tổng Quan Về PAM (Privileged Access Management)'
+title: Tổng Quan Về PAM (Privileged Access Management)
 description: 'Kiến trúc, luồng hoạt động và các giải pháp PAM dùng trong doanh nghiệp để quản lý truy cập remote vào hệ thống máy chủ'
 tags: [pam, privileged-access-management, security, remote-access, devops]
 category: 'system-admin'

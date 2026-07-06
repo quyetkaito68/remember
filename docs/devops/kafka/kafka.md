@@ -1,5 +1,5 @@
 ---
-title: 'Apache Kafka — Thao Tác Trên Linux Server'
+title: Apache Kafka — Thao Tác Trên Linux Server
 description: 'Cài đặt, cấu hình, vận hành Kafka trên Linux — các lệnh cơ bản, xem log, xử lý sự cố'
 tags: [kafka, apache-kafka, linux, message-queue, devops]
 category: 'devops/kafka'

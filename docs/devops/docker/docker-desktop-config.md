@@ -1,5 +1,5 @@
 ---
-title: 'Docker Desktop — Cấu Hình Cho Mạng Local & Registry Nội Bộ'
+title: Docker Desktop
 description: 'Hướng dẫn cài đặt, cấu hình Docker Desktop để làm việc với registry nội bộ (Harbor) trong mạng local'
 tags: [docker, docker-desktop, registry, harbor, local-network]
 category: 'devops/docker'

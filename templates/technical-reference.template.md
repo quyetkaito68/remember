@@ -1,9 +1,9 @@
 ---
 # ─── BẮT BUỘC ───────────────────────────────────────────
-title: 'Tiêu Đề Kỹ Thuật'
-description: 'Mô tả vấn đề kỹ thuật và giải pháp'
+title: Tiêu Đề Kỹ Thuật
+description: Mô tả vấn đề kỹ thuật và giải pháp
 tags: [tag1, tag2, tag3]
-category: 'tên-thư-mục'
+category: tên-thư-mục
 updated: YYYY-MM-DD
 
 # ─── TÙY CHỌN ───────────────────────────────────────────

@@ -1,5 +1,5 @@
 ---
-title: 'JMeter — Chạy Test Plan Với jmeter-run.bat'
+title: JMeter — Chạy Test Plan Với jmeter-run.bat
 description: 'Sử dụng file jmeter-run.bat để chạy JMeter non-GUI với test plan có sẵn, tự động sinh HTML report'
 tags: [jmeter, performance-test, load-test, batch, windows]
 category: 'developer/jmetter'

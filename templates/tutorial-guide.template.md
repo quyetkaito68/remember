@@ -1,9 +1,9 @@
 ---
 # ─── BẮT BUỘC ───────────────────────────────────────────
-title: 'Tiêu Đề Hướng Dẫn'
-description: 'Mô tả ngắn gọn nội dung (1-2 câu)'
+title: Tiêu Đề Hướng Dẫn
+description: Mô tả ngắn gọn nội dung (1-2 câu)
 tags: [tag1, tag2, tag3]
-category: 'tên-thư-mục'       # Tên thư mục chứa file
+category: tên-thư-mục       # Tên thư mục chứa file
 updated: YYYY-MM-DD            # Ngày cập nhật gần nhất
 
 # ─── TÙY CHỌN ───────────────────────────────────────────

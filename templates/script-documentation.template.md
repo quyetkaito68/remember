@@ -1,9 +1,9 @@
 ---
 # ─── BẮT BUỘC ───────────────────────────────────────────
-title: 'Tên Công Cụ / Script'
-description: 'Mô tả chức năng và cách dùng script'
+title: Tên Công Cụ / Script
+description: Mô tả chức năng và cách dùng script
 tags: [tag1, tag2, tag3]
-category: 'tên-thư-mục'
+category: tên-thư-mục
 updated: YYYY-MM-DD
 
 # ─── TÙY CHỌN ───────────────────────────────────────────

@@ -1,9 +1,9 @@
 ---
 # ─── BẮT BUỘC ───────────────────────────────────────────
-title: 'Tổng Quan Về Chủ Đề'
-description: 'Mô tả ngắn gọn phạm vi bài viết'
+title: Tổng Quan Về Chủ Đề
+description: Mô tả ngắn gọn phạm vi bài viết
 tags: [tag1, tag2, tag3]
-category: 'tên-thư-mục'
+category: tên-thư-mục
 updated: YYYY-MM-DD
 
 # ─── TÙY CHỌN ───────────────────────────────────────────

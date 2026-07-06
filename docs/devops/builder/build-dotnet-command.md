@@ -1,5 +1,5 @@
 ---
-title: 'Build C# Backend Solution — 3 Lệnh Dotnet Cốt Lõi'
+title: Build C# Backend Solution — 3 Lệnh Dotnet Cốt Lõi
 description: 'Ba lệnh dotnet clean, restore, build dùng để build project/solution C# backend trong CI/CD hoặc local'
 tags: [dotnet, csharp, build, backend, ci-cd]
 category: 'devops/builder'

@@ -1,5 +1,5 @@
 ---
-title: 'Mklink — Symbolic Link Trên Windows'
+title: Mklink — Symbolic Link Trên Windows
 description: 'Cách tạo symbolic link (symlink) trên Windows bằng lệnh mklink — trỏ folder/file ảo đến vị trí thật'
 tags: [windows, mklink, symlink, symbolic-link, cmd]
 category: 'computer/windows'
