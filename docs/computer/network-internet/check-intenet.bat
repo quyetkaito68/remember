@@ -6,7 +6,7 @@ ipconfig | findstr /i "IPv4 Default"
 
 echo.
 echo ===== KIEM TRA ROUTER =====
-ping -n 1 192.168.1.1
+ping -n 1 192.168.0.1
 
 echo.
 echo ===== KIEM TRA INTERNET =====

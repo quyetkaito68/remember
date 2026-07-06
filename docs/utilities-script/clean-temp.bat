@@ -24,4 +24,4 @@ powershell -NoProfile -ExecutionPolicy Bypass -Command "Clear-RecycleBin -Force 
 rd /s /q C:\$Recycle.Bin >nul 2>&1
 
 echo ==== Hoan thanh ====
-pause
+@REM pause
