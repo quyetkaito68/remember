@@ -5,9 +5,11 @@
   "version": "0.1.0",
   "description": "REMEMBER — Personal Knowledge Base built with VitePress.",
   "scripts": {
-    "dev": "npm run generate-assets && vitepress dev docs",
+    "generate-toc": "node scripts/generate-toc.js",
     "generate-assets": "node scripts/generate-assets.js",
-    "build": "npm run generate-assets && vitepress build docs",
+    "generate": "npm run generate-toc && npm run generate-assets",
+    "dev": "npm run generate && vitepress dev docs",
+    "build": "npm run generate && vitepress build docs",
     "serve": "vitepress serve docs",
     "preview": "vitepress preview docs"
   },

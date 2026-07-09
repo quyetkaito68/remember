@@ -74,6 +74,7 @@ function buildSidebar(directory, route = '') {
 
       const indexFile = path.join(entryPath, 'index.md')
       const metadata = fs.existsSync(indexFile) ? readFrontmatter(indexFile) : {}
+      if (metadata.hideFromSidebar === 'true') continue
       const text = metadata.title || humanize(entry.name)
       const group = {
         text,
@@ -90,6 +91,7 @@ function buildSidebar(directory, route = '') {
     if (entry.name === 'index.md' && route === '') continue
 
     const metadata = readFrontmatter(entryPath)
+    if (metadata.hideFromSidebar === 'true') continue
     const text = metadata.title || humanize(entry.name.replace(/\.md$/, ''))
     const link = normalizeLink(`/${route}/${entry.name.replace(/\.md$/, '')}/`)
     groups.push({ text, link })

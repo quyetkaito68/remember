@@ -1,455 +1,113 @@
 ---
-title: REMEMBER
-description: A personal knowledge base with Markdown as the only source of truth.
-tags: [home, wiki]
-updated: 2026-07-05
+title: "REMEMBER — Personal Knowledge Base"
+description: "Bảng mục lục toàn bộ kiến thức"
 ---
 
-# <span class="site-title">HOMEPAGE</span>
-
-Đây là website của QuyetKaito lưu trữ lại các kiến thức.
-
-Đưa vào một thư mục Markdown, công cụ sẽ build thành một website hoàn chỉnh.
-
-```
-Markdown (.md)
-       │
-       │
-Static Site Generator
-(VitePress / Docusaurus / ...)
-       │
-       ▼
-HTML + CSS + JS
-       │
-       ▼
-Website tĩnh
-```
-
-## Flow bằng text:
-1. Viết nội dung Markdown ở trong docs và đặt asset kèm theo cùng thư mục.
-2. Khi chạy build, script trong generate-assets.js sẽ quét thư mục này.
-3. Script sẽ:
-    - phát hiện page Markdown,
-    - phát hiện asset liên quan,
-    - sinh manifest JSON,
-    - sinh asset pages vào docs/generated/assets/,
-    - publish asset vào docs/public/ để browser có thể truy cập.
-4. VitePress đọc Markdown (cả content gốc và generated) và render thành HTML.
-5. Theme trong index.js chèn giao diện như panel liên quan và viewer.
-6. Khi người dùng mở trang, browser sẽ fetch manifest rồi render UI.
+# REMEMBER
 
-## Kiến trúc tổng thể
+Bang muc luc toan bo kien thuc.
 
-```
-                              +----------------------+
-                              |      GitHub Repo     |
-                              |  (Source of Truth)   |
-                              +----------+-----------+
-                                         |
-                                         |
-                                 Markdown (.md)
-                                         |
-                                         |
-                          +--------------v---------------+
-                          |         VitePress            |
-                          | Static Site Generator (SSG)  |
-                          +--------------+---------------+
-                                         |
-                            Build HTML/CSS/JS
-                                         |
-                      +------------------v------------------+
-                      |              dist/                  |
-                      |       Static Website Output         |
-                      +------------------+------------------+
-                                         |
-                            GitHub Actions (CI/CD)
-                                         |
-                                         |
-                          +--------------v---------------+
-                          |         GitHub Pages         |
-                          |      Static File Hosting     |
-                          +--------------+---------------+
-                                         |
-                                         |
-                                 Browser (Desktop/Mobile)
-```
+---
 
-## Kiến trúc runtime
-```
-Browser
+## About
 
-    │
+- [About](/about) -- Kiến trúc tổng thể và luồng hoạt động của REMEMBER
 
-    ├────────────── Request /network/tcp
+---
 
-    │
+## AI
 
-GitHub Pages (CDN)
+- [AI Coding Ecosystem Handbook](/AI/AI-coding-eco-system-overview) -- Tổng quan hệ sinh thái AI Coding từ Model, Runtime, API, Coding Agent đến IDE.
+- **Agent**
+  - [Hướng Dẫn Kết Nối Claude Code Với Miễn Phí Qua OpenRouter](/AI/agent/claude-code-free) -- Hướng dẫn cấu hình Claude Code sử dụng model AI miễn phí thông qua OpenRouter thay vì dùng API key chính thức của Anthropic.
+  - [Danh sách AI Coding Agent](/AI/agent/list-agent-code) -- Danh sách các AI Coding Agent phổ biến, sắp xếp theo thời gian ra mắt, kèm rating, giá và tính năng chính.
 
-    │
-
-    ├── index.html
-
-    ├── assets/
-
-    ├── search-index
-
-    ├── css
-
-    └── js
-
-    │
-
-Browser Render
-
-    │
-
-Markdown -> HTML
-
-    │
+---
 
-User
-```
-
-## Flow phát triển
-```
-Viết Markdown
-
-        │
-
-git add
-
-        │
-
-git commit
-
-        │
-
-git push
-
-        │
-
-GitHub Actions
-
-        │
-
-npm install
-
-        │
-
-vitepress build
-
-        │
-
-Generate Static Website
-
-        │
-
-Deploy GitHub Pages
-
-        │
-
-Website Online
-```
-
-## Tính năng preview cả file script đính kèm file markdown chính
-
-Lý do phải copy assets file vào docs/public là vì build của VitePress tạo ra output tĩnh (HTML/CSS/JS). Các file gốc nằm trong thư mục markdown không tự động được expose như URL có thể tải trực tiếp từ browser.
-
-```
-+------------------------------------+
-|  Source content (docs/)            |
-|  - page.md                         |
-|  - asset files (.bat, .ps1)        |
-+---------------+--------------------+
-                |
-                v
-+------------------------------------+
-|  Generate assets                   |
-|  - scan folders                    |
-|  - detect page + asset             |
-|  - create manifest (.vitepress/)   |
-|  - copy/publish assets (public/)   |
-|  - create asset pages (generated/) |
-+---------------+--------------------+
-                |
-                v
-+------------------------------------+
-|  VitePress build                   |
-|  - content gốc từ <topic>/        |
-|  - asset pages từ generated/      |
-|  - Markdown -> HTML                |
-|  - inject theme components        |
-+---------------+--------------------+
-                |
-                v
-+------------------------------------+
-|  Static output (dist/)             |
-|  - html/css/js/assets              |
-+---------------+--------------------+
-                |
-                v
-+------------------------------------+
-|  Browser                           |
-|  - load page                       |
-|  - fetch manifest                  |
-|  - show Related Files / AssetViewer|
-+------------------------------------+
-```
-
-## 1. Repository Layout
-```
-docs/                          # Thư mục gốc của VitePress
-
-├── .vitepress/                # Config, theme, components (source code web)
-├── public/                    # Raw assets được copy vào để serve (gitignored, tự sinh)
-├── generated/                 # Asset pages được sinh tự động (gitignored, tự sinh)
-│   └── assets/
-│       └── <topic>/
-│           └── <file>/index.md
-│
-├── <topic>/                   # CHỈ chứa content thuần của bạn
-│   ├── *.md                   #   Main Document
-│   └── *.bat, *.ps1, ...     #   Asset files đi kèm
-│
-├── favicon.svg
-└── index.md
-```
-
-Ví dụ cụ thể:
-```
-docs/
-
-├── computer/
-│   ├── windows/
-│   │   ├── don-dep-appdata-windows.md
-│   │   └── ...
-│   └── network-internet/
-│       ├── network-internet-co-ban.md
-│       └── check-intenet.bat
-│
-├── database/
-│   └── mysql/
-│       ├── collation-charset.md
-│       ├── restore-database.md
-│       └── dump-database.bat
-│
-├── organization-file/
-│   ├── README.md
-│   ├── config.json
-│   ├── organize.ps1
-│   └── organize_run.bat
-│
-└── ...
-```
+## Computer
 
-## 2. Build Flow
-```
-                   npm run build
-                   (generate-assets + vitepress build)
+- **Linux**
+  - [Vim — Các lệnh cơ bản để chỉnh sửa file](/computer/linux/vim-command) -- 'Các thao tác Vim cơ bản nhất: mở file, edit, save, delete, select, exit, và các mode.'
+  - [Nano — Các lệnh cơ bản để chỉnh sửa file](/computer/linux/nano-command) -- 'Các thao tác Nano cơ bản nhất: mở file, edit, save, search, cut, exit.'
+- **Network Internet**
+  - [Network & Internet Cơ Bản](/computer/network-internet/network-internet-co-ban) -- Kiến thức cơ bản về mạng máy tính và internet, bao gồm ISP, DNS, địa chỉ IP và các giao thức mạng.
+- **System Admin**
+  - [Tổng Quan Về PAM (Privileged Access Management)](/computer/system-admin/pam) -- 'Kiến trúc, luồng hoạt động và các giải pháp PAM dùng trong doanh nghiệp để quản lý truy cập remote vào hệ thống máy chủ'
+  - [Vdi](/computer/system-admin/vdi)
+- **Windows**
+  - [Mklink — Symbolic Link Trên Windows](/computer/windows/mklink) -- 'Cách tạo symbolic link (symlink) trên Windows bằng lệnh mklink — trỏ folder/file ảo đến vị trí thật'
+  - [Tạo Scheduled Task Trên Windows](/computer/windows/create-task) -- 'Hướng dẫn tạo task chạy định kỳ bằng Task Scheduler — ví dụ với script clean-temp.bat dọn dẹp temp hàng ngày'
+  - [RAM trên Windows](/computer/windows/RAM) -- 'Hiểu toàn diện về RAM trên Windows: physical memory, virtual memory, commit, pagefile, working set, cache, memory leak, cách đọc Task Manager và các công cụ chẩn đoán.'
+  - [Dọn dẹp AppData trên Windows (An toàn & Hiệu quả)](/computer/windows/don-dep-appdata-windows) -- Hướng dẫn dọn dẹp thư mục AppData trên Windows an toàn, bao gồm cache ứng dụng, file tạm và dữ liệu còn sót lại sau khi uninstall.
 
-                           │
+---
 
-                           ▼
+## Database
 
-              Scan every folder inside docs/
-              (bỏ qua .vitepress, public, generated)
+- **Mysql**
+  - [Collation & Character Set trong MySQL](/database/mysql/collation-charset) -- Tổng quan về character set và collation trong MySQL, cách kiểm tra và xử lý lỗi khi so sánh.
+  - [Get database size](/database/mysql/get-size-database) -- Truy vấn lấy kích thước dữ liệu, index và tổng dung lượng của từng bảng trong database MySQL.
+  - [Kiểm tra Collation MySQL](/database/mysql/kiem-tra-collation) -- Hướng dẫn xác định các bảng và cột trong MySQL không dùng collation utf8mb4_0900_as_ci.
+  - [Xử lý collation hỗn hợp trong MySQL](/database/mysql/xu-ly-collation-mix) -- Nguyên nhân, chẩn đoán và cách xử lý khi gặp tình trạng mix collation (connection/session, biến user-defined, TEXT vs VARCHAR).
+  - [Backup MySQL Database với mysqldump](/database/mysql/0-backup/dump-database) -- Script dump database MySQL tự động backup cấu trúc, procedures và triggers.
+  - [Restore MySQL Database](/database/mysql/1-restore/restore-database) -- Khôi phục database MySQL từ file dump .sql bằng command mysql.
+  - [Lỗi retrieval of the rsa public key is not enabled for insecure connections](/database/mysql/loi-retrieval-of-the-rsa-public-key-is-not-enabled-for-insecure-connections) -- Nguyên nhân và cách khắc phục lỗi RSA public key trong MySQL khi kết nối không an toàn.
 
-                           │
+---
 
-                           ▼
+## Developer
 
-         Detect Main Document (.md) + Related Assets
+- **Jmetter**
+  - [JMeter — Chạy Test Plan Với jmeter-run.bat](/developer/jmetter/jmeter-run) -- 'Sử dụng file jmeter-run.bat để chạy JMeter non-GUI với test plan có sẵn, tự động sinh HTML report'
+  - [JMeter — Tạo Test Plan Cơ Bản](/developer/jmetter/jmeter-plan) -- 'Hướng dẫn tạo test plan JMeter từ A-Z: record request, xử lý dữ liệu, trích xuất kết quả và sinh data'
+  - [Performance Test — Kiến thức nền tảng & Các loại kiểm thử](/developer/jmetter/performance-test-beginner) -- 'Tổng hợp khái niệm CCU, Tenant, User, Request; công thức tính toán; mối liên hệ CCU-Thread trong JMeter; các kiểu kiểm thử performance và những điểm quan trọng thường bị bỏ sót'
+  - [Bài toán Performance Test — AMIS Kiểm toán SaaS](/developer/jmetter/performance-test-example) -- 'Bài toán thực tế: xác định quy mô user/tenant, tính CCU, thiết kế kịch bản kiểm thử hiệu năng cho phần mềm kiểm toán SaaS với bzm - Concurrency Thread Group, cấu hình JMeter và thời gian chạy cụ thể'
+- **Performance**
+  - [Performance Backend C Sharp](/developer/performance/performance-backend-c-sharp)
+  - [Performance Front End](/developer/performance/performance-front-end)
+- **Tool**
+  - [Developer Tools — Danh sách công cụ hữu ích cho Developer](/developer/tool/dev-tool-list) -- 'Tổng hợp các công cụ developer hữu ích nhất, chia theo category, sắp xếp theo độ quan trọng.'
 
-                           │
+---
 
-                           ▼
+## DevOps
 
-              Build assets-manifest.json
-              Copy raw assets → docs/public/
-              Sinh asset pages → docs/generated/assets/
+- **Builder**
+  - [Build C# Backend Solution — 3 Lệnh Dotnet Cốt Lõi](/devops/builder/build-dotnet-command) -- 'Ba lệnh dotnet clean, restore, build dùng để build project/solution C# backend trong CI/CD hoặc local'
+- **Deployment**
+  - [Stack](/devops/deployment/stack)
+- **Docker**
+  - [Docker Desktop](/devops/docker/docker-desktop-config) -- 'Hướng dẫn cài đặt, cấu hình Docker Desktop để làm việc với registry nội bộ (Harbor) trong mạng local'
+- **Jenkins**
+  - [Jenkins](/devops/jenkins/jenkins)
+- **Kafka**
+  - [Apache Kafka — Thao Tác Trên Linux Server](/devops/kafka/kafka) -- 'Cài đặt, cấu hình, vận hành Kafka trên Linux — các lệnh cơ bản, xem log, xử lý sự cố'
 
-                           │
+---
 
-                           ▼
+## Git
 
-                   VitePress build
-              Markdown → HTML + CSS + JS
-```
+- [Git Commands — Các lệnh Git hay dùng nhất](/git/git-command) -- 'Danh sách các lệnh Git thông dụng nhất: branch, commit, reset, restore, conflict, credential — kèm giải thích ngắn gọn.'
+- [Hướng dẫn sử dụng Git](/git/git-guide) -- Hướng dẫn cơ bản về Git, từ khởi tạo repository, cấu hình người dùng đến đẩy mã nguồn lên GitHub.
+- [Triển khai ứng dụng React + Vite lên GitHub Pages](/git/github-page) -- Hướng dẫn triển khai ứng dụng React TypeScript với Vite lên GitHub Pages sử dụng GitHub Actions CI/CD.
 
-## 3. Manifest
+---
 
-Ví dụ:
-```
-clean-temp/
+## Organization File
 
-    clean-temp.md
-    clean-temp.ps1
-    clean-temp.bat
-    clean-temp.sql
-```
-Sinh ra
+- [Organization File Tool](/organization-file/README) -- Công cụ tự động phân loại và di chuyển file theo loại vào các thư mục đích trên Windows.
 
-```
-assets-manifest.json
+---
 
-│
+## Software Engineering
 
-├── page
-│      /computer/windows/clean-temp
-│
-│      markdown
-│          clean-temp.md
-│
-│      assets
-│
-│      ├── clean-temp.ps1
-│      ├── clean-temp.bat
-│      └── clean-temp.sql
-│
-└── ...
-```
+- [Bản Đồ Thế Giới Phần Mềm](/software/software-overview) -- Tổng quan toàn cảnh thế giới phần mềm — từ nhu cầu người dùng đến cách phần mềm đến tay người dùng.
+- [Các Loại Phần Mềm](/software/software-types) -- Hệ thống phân loại phần mềm — System, Application, Embedded, và mối quan hệ giữa chúng.
+- [Kiến Trúc Phần Mềm](/software/software-architecture) -- Cách một phần mềm được tổ chức bên trong — từ mô hình-layered đến microservices.
+- [Chu Kỳ Sống Phần Mềm](/software/software-lifecycle) -- Phần mềm đi qua các giai đoạn — từ ý tưởng đến bảo trì, retirement. Quy trình SDLC và DevOps.
 
+---
 
-## 4. Runtime Flow
+## Utilities Script
 
-Khi user mở
-```
-/clean-temp/
-```
-
-flow sẽ là 
-```
-Browser
-
-     │
-
-     ▼
-
-VitePress Router
-
-     │
-
-     ▼
-
-Markdown Renderer
-
-     │
-
-     ▼
-
-Load Page Metadata
-
-     │
-
-     ▼
-
-Asset Manager
-
-     │
-
-     ▼
-
-Read assets-manifest.json
-
-     │
-
-     ▼
-
-Find Related Assets
-
-     │
-
-     ▼
-
-Render Asset Panel
-```
-
-## 5. Asset Manager
-
-Đây là trung tâm của toàn bộ tính năng.
-
-```
-                 Asset Manager
-
-                       │
-
-      ┌────────────────┼─────────────────┐
-
-      │                │                 │
-
- Asset Registry   Asset Resolver   Asset Viewer
-
-      │                │                 │
-
-      │                │                 │
-
- Manifest       Current Page      Render UI
-
-      │                │
-
-      └──────────┬─────┘
-
-                 ▼
-
-          Related Assets
-```
-
-## 6. Khi click vào Asset
-
-Ví dụ click  clean-temp.ps1
-
-flow
-
-
-```
-User
-
-    │
-
-Click
-
-    │
-
-    ▼
-
-Asset Router
-
-    │
-
-    ▼
-
-Asset Resolver
-
-    │
-
-    ▼
-
-Read Manifest
-
-    │
-
-    ▼
-
-Locate File
-
-    │
-
-    ▼
-
-Asset Viewer
-
-    │
-
-    ▼
-
-Preview Renderer
-
-    │
-
-    ▼
-
-Browser
-
-```
-
+- [Clean Temp Windows](/utilities-script/clean-temp) -- Hướng dẫn cách clear temp với 1 click giải phóng disk windows

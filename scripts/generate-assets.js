@@ -113,7 +113,12 @@ async function main(){
     // compute baseRoute for the folder (clean route)
     let baseRoute
     if (dir === '.' || dir === '') {
-      const md = mdFiles[0]
+      const sorted = [...mdFiles].sort((a, b) => {
+        if (a.name === 'index.md') return -1
+        if (b.name === 'index.md') return 1
+        return 0
+      })
+      const md = sorted[0]
       baseRoute = md.name.toLowerCase() === 'index.md' ? '/' : '/' + md.name.replace(/\.md$/i, '')
     } else {
       baseRoute = '/' + dir.replace(/\\/g,'/')
