@@ -26,7 +26,8 @@ const breadcrumbs = computed(() => {
     <ul>
       <li v-for="(crumb, index) in breadcrumbs" :key="crumb.link">
         <template v-if="index + 1 < breadcrumbs.length">
-          <a :href="crumb.link">{{ crumb.text }}</a>
+          <a v-if="index === 0" :href="crumb.link">{{ crumb.text }}</a>
+          <span v-else>{{ crumb.text }}</span>
           <span class="separator">/</span>
         </template>
         <template v-else>

@@ -10,7 +10,7 @@ export default {
   ...DefaultTheme,
   Layout() {
     return h(Layout, null, {
-      'page-top': () => h(Breadcrumbs),
+      'doc-top': () => h(Breadcrumbs),
       'doc-footer-before': () => h(RelatedFilesPanel)
     })
   },
