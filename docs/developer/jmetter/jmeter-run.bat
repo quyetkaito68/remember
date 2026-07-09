@@ -3,7 +3,7 @@ setlocal enabledelayedexpansion
 
 :: ========== Configuration ==========
 set "JMETER_HOME=D:\0_FullShare\Jmeter\apache-jmeter-5.4.3"
-set "TESTPLAN_DIR=D:\0_FullShare\Jmeter\PerformanceTestQTSX\testplan"
+set "TESTPLAN_DIR=D:\0_FullShare\Jmeter\PerformanceTestMAU\testplan"
 
 :: ========== Validate config ==========
 if not exist "%JMETER_HOME%\bin\jmeter.bat" (
@@ -19,11 +19,8 @@ if not exist "%TESTPLAN_DIR%" (
     exit /b 1
 )
 
-:: ========== Get date (YYYYMMDD) ==========
-for /f "tokens=2 delims==" %%I in ('wmic os get localdatetime /format:list') do (
-    if not "%%I"=="" set "dateStr=%%I"
-)
-set "dateStr=%dateStr:~0,8%"
+:: ========== Get timestamp (YYYYMMDD_HHmmss) ==========
+for /f "usebackq delims=" %%I in (`powershell -NoProfile -Command "Get-Date -Format 'yyyyMMdd_HHmmss'"`) do set "timestamp=%%I"
 
 :main_menu
 cls
@@ -31,12 +28,12 @@ echo ==========================================
 echo        JMeter Test Plan Selection
 echo ==========================================
 echo Directory: "%TESTPLAN_DIR%"
-echo Date: %dateStr%
+echo Date: %timestamp%
 echo.
 
 :: List test plans with natural sort
 set "count=0"
-for /f "delims=" %%f in ('powershell -Command "Get-ChildItem '%TESTPLAN_DIR:\=\\%.jmx' | Sort-Object {[regex]::Replace($_.Name, '\d+', {$args[0].Value.PadLeft(20)})} | Select-Object -ExpandProperty Name"') do (
+for /f "delims=" %%f in ('powershell -Command "Get-ChildItem '%TESTPLAN_DIR%\*.jmx' | Sort-Object {[regex]::Replace($_.Name, '\d+', {$args[0].Value.PadLeft(20)})} | Select-Object -ExpandProperty Name"') do (
     set /a count+=1
     set "test!count!=%%~nf"
     echo   !count!. %%~nf
@@ -77,9 +74,9 @@ if /i not "!confirm!"=="y" (
 )
 
 :: ========== Setup paths ==========
-set "result_dir=testresult\!testname!_%dateStr%"
-set "report_dir=testreport\!testname!_%dateStr%"
-set "result_file=!result_dir!\!testname!_%dateStr%.jtl"
+set "result_dir=testresult\!testname!_%timestamp%"
+set "report_dir=testreport\!testname!_%timestamp%"
+set "result_file=!result_dir!\!testname!_%timestamp%.jtl"
 set "test_file=%TESTPLAN_DIR%\!testname!.jmx"
 
 echo.
@@ -124,3 +121,6 @@ echo.
 echo Invalid input! Please enter 0-!count!
 pause
 goto main_menu
+
+
+
