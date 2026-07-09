@@ -74,8 +74,6 @@ Bang muc luc toan bo kien thuc.
 
 - **Builder**
   - [Build C# Backend Solution — 3 Lệnh Dotnet Cốt Lõi](/devops/builder/build-dotnet-command) -- 'Ba lệnh dotnet clean, restore, build dùng để build project/solution C# backend trong CI/CD hoặc local'
-- **Deployment**
-  - [Stack](/devops/deployment/stack)
 - **Docker**
   - [Docker Desktop](/devops/docker/docker-desktop-config) -- 'Hướng dẫn cài đặt, cấu hình Docker Desktop để làm việc với registry nội bộ (Harbor) trong mạng local'
 - **Jenkins**

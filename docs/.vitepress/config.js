@@ -41,9 +41,7 @@ export default withMermaid(
           link: 'https://github.com/quyetkaito68/quyetkaito68',
         },
       ],
-      editLink: {
-        pattern: '',
-      },
+      editLink: false,
       lastUpdated: true,
       docFooter: {
         prev: 'Previous',

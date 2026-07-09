@@ -110,7 +110,7 @@ export async function getAssetsForRoute(routePath){
     return (manifest[norm].assets || []).map(normalizeAsset)
   }
   const parts = norm.split('/')
-  while (parts.length > 1) {
+  while (parts.length > 2) {
     parts.pop()
     const parent = parts.join('/') || '/'
     if (manifest[parent] && (manifest[parent].assets || []).length) {
