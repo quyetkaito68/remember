@@ -25,7 +25,7 @@ function humanize(value) {
 }
 
 function normalizeLink(value) {
-  return value.replace(/\/+/g, '/').replace(/\/\s*$/, '/')
+  return value.replace(/\/+/g, '/').replace(/\/+$/, '')
 }
 
 function getEntryOrder(directory, entry) {
