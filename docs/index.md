@@ -71,7 +71,7 @@ description: "Bảng mục lục toàn bộ kiến thức"
   - [Performance Backend C Sharp](/developer/performance/performance-backend-c-sharp)
   - [Performance Front End](/developer/performance/performance-front-end)
 - **Tool**
-  - [Developer Tools — Danh sách công cụ hữu ích cho Developer](/developer/tool/dev-tool-list) -- 'Tổng hợp các công cụ developer hữu ích nhất, chia theo category, sắp xếp theo độ quan trọng.'
+  - [Developer Tools](/developer/tool/dev-tool-list) -- 'Danh sách công cụ developer — dạng bảng tối giản.'
 
 ---
 
