@@ -16,7 +16,7 @@
 | `docs/public/` | Copied assets at build time (gitignored). |
 | `docs/generated/` | Auto-generated asset viewer pages (gitignored). |
 | `templates/` | **New.** Markdown templates per content type — pick the right one for each new file. |
-| `scripts/` | `generate-assets.js` — scans `docs/`, builds manifest, copies assets, generates pages. |
+| `scripts/` | `generate-assets.js` — scans `docs/`, builds manifest, copies assets, generates pages. `read-document.py` — reads .docx/.pdf files and outputs markdown. `verify-diagram.ps1` — checks ASCII diagram alignment. |
 | `.github/workflows/` | `deploy.yml` — CI/CD to GitHub Pages. |
 
 ## Architecture
@@ -83,6 +83,12 @@ Standard templates for writing content are at `templates/`. Pick the right templ
 - Download links should use `a.rawUrl || a.url`.
 - Text file types: `.ps1`, `.bat`, `.cmd`, `.sh`, `.sql`, `.json`, `.xml`, `.yml`, `.yaml`, `.ini`, `.reg`, `.env`, `.txt`, `.js`, `.ts`, `.py`, `.java`, `.c`, `.cpp`, `.css`, `.html`, `.md`.
 
+## Reading Documents
+
+Use `python scripts/read-document.py <file-path>` to read `.docx` and `.pdf` files. Output is markdown text printed to stdout.
+
+Dependencies: `python-docx`, `pypdf` (installed globally).
+
 ## Git Conventions
 
 - Branch: `main`
@@ -98,78 +104,4 @@ Standard templates for writing content are at `templates/`. Pick the right templ
 
 ## ASCII Diagram Rules
 
-**Bắt buộc tuân thủ khi vẽ sơ đồ trong code block ````text`.**
-
-### Nguyên tắc 1: Đếm ký tự chính xác
-
-Mỗi dòng trong box phải có **đúng cùng số ký tự** từ `│` trái đến `│` phải.
-
-```
-┌──────────────────┐     ← 20 inner chars (góc + 18 dash + góc)
-│    Tiêu đề       │     ← 20 inner chars (│ + 18 content + │)
-└──────────────────┘     ← 20 inner chars
-```
-
-**Cách đếm:** Đếm TẤT CẢ ký tự trên 1 dòng, kể cả spaces. Mỗi dòng trong cùng 1 box PHẢI bằng nhau.
-
-### Nguyên tắc 2: Template cơ bản
-
-#### Box đơn giản
-```
-┌─────────────────────┐
-│     TIÊU ĐỀ         │
-│                     │
-│   Nội dung ở đây    │
-└─────────────────────┘
-```
-
-#### Box với sub-box
-```
-┌───────────────────────────────────┐
-│           TITLE                   │
-│                                   │
-│   ┌──────────┐  ┌──────────┐      │
-│   │  Item A  │  │  Item B  │      │
-│   └──────────┘  └──────────┘      │
-└───────────────────────────────────┘
-```
-
-#### Flow arrows
-```
-┌──────────┐     ┌──────────┐
-│  Step 1  │────>│  Step 2  │
-└──────────┘     └──────────┘
-```
-
-### Nguyên tắc 3: Cấm ký tự có độ rộng khác chuẩn
-
-Không dùng các ký tự Unicode có độ rộng khác với monospace chuẩn. Chỉ dùng `─`, `│`, `┌`, `┐`, `└`, `┘`, `├`, `┤`, `┬`, `┴`, `┼` cho border và `>`, `v`, `<`, `^` làm mũi tên.
-
-| Sai | Đúng |
-|-----|------|
-| `───▶` | `───>` |
-| `───▼` | `───v` |
-| `───●` | `───o` |
-| `───◆` | `───*` |
-| `───■` | `───#` |
-
-**Không dùng:** ▶, ▼, ●, ◆, ■, ➤, ➡, ▸, →, ↑, ←, ↓, ▲, △, ▽ (có thể lệch width trong terminal).
-**Dùng thay thế:** `>`, `v`, `^`, `<`, `o`, `*`, `#`.
-
-### Nguyên tắc 4: Verification
-
-Sau khi sinh diagram, CHẠY script kiểm tra:
-
-```bash
-powershell -File scripts/verify-diagram.ps1 -File <path-to-md>
-```
-
-Script sẽ check:
-- Mỗi dòng trong code block `text` có equal-length border chars
-- Không có dòng nào bị lệch
-
-### Nguyên tắc 5: Kích thước tối đa
-
-- **Rộng tối đa:** 80 ký tự (fit terminal chuẩn)
-- **Cao tối đa:** 30 dòng / diagram
-- Nếu lớn hơn → tách thành nhiều diagram nhỏ
+Xem skill `ascii-diagram` (.claude/skills/ascii-diagram/SKILL.md) cho quy tắc đầy đủ. Chạy `powershell -File scripts/verify-diagram.ps1 -File <path-to-md>` để verify diagram.

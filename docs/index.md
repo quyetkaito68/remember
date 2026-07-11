@@ -21,6 +21,9 @@ Bang muc luc toan bo kien thuc.
 - **Agent**
   - [Hướng Dẫn Kết Nối Claude Code Với Miễn Phí Qua OpenRouter](/AI/agent/claude-code-free) -- Hướng dẫn cấu hình Claude Code sử dụng model AI miễn phí thông qua OpenRouter thay vì dùng API key chính thức của Anthropic.
   - [Danh sách AI Coding Agent](/AI/agent/list-agent-code) -- Danh sách các AI Coding Agent phổ biến, sắp xếp theo thời gian ra mắt, kèm rating, giá và tính năng chính.
+  - [OpenCode — AI Coding Agent](/AI/agent/opencode) -- OpenCode là AI coding agent mã nguồn mở chạy trong terminal, hỗ trợ đa model (Claude, GPT, Gemini,...) cho lập trình viên.
+  - [Tối Ưu Token Cho AI Coding Agent](/AI/agent/token-optimization) -- Hướng dẫn agent-agnostic về tiết kiệm token, quản lý context window và kỹ thuật prompting cho mọi AI coding agent (opencode, Claude Code, Cline, Continue...).
+  - [Token — Claude Code CLI Specific](/AI/agent/token-claude-code) -- Các kỹ thuật tiết kiệm token đặc thù cho Claude Code CLI — slash commands, CLAUDE.md, Plan Mode, Sub-agents.
 
 ---
 
