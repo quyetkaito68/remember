@@ -1,6 +1,6 @@
 ---
 title: About
-description: Kiến trúc tổng thể và luồng hoạt động của REMEMBER
+description: Kiến trúc tổng thể và luồng hoạt động của website REMEMBER
 tags: [about, architecture]
 hideFromSidebar: true
 order: 0

@@ -106,10 +106,7 @@ async function main() {
   lines.push('description: "Bảng mục lục toàn bộ kiến thức"')
   lines.push('---')
   lines.push('')
-  lines.push('# REMEMBER')
-  lines.push('')
-  lines.push('Bang muc luc toan bo kien thuc.')
-  lines.push('')
+  lines.push('# MỤC LỤC')
 
   for (const cat of categoryOrder) {
     const items = grouped[cat]
