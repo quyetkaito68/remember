@@ -29,6 +29,9 @@ Bang muc luc toan bo kien thuc.
 
 ## Computer
 
+- **File**
+  - [Markdown — Cú Pháp Cơ Bản & Nâng Cao](/computer/file/markdown) -- Tổng hợp cú pháp Markdown - text formatting, lists, code blocks, tables, images, links, task lists, và extended syntax.
+  - [Mermaid — Biểu Đồ Từ Markdown](/computer/file/mermaid) -- Hướng dẫn sử dụng Mermaid - Flowchart, Sequence, Class, Gantt, Pie — render diagram trực tiếp từ Markdown.
 - **Linux**
   - [Vim — Các lệnh cơ bản để chỉnh sửa file](/computer/linux/vim-command) -- 'Các thao tác Vim cơ bản nhất: mở file, edit, save, delete, select, exit, và các mode.'
   - [Nano — Các lệnh cơ bản để chỉnh sửa file](/computer/linux/nano-command) -- 'Các thao tác Nano cơ bản nhất: mở file, edit, save, search, cut, exit.'
