@@ -24,6 +24,18 @@ function humanize(value) {
     .replace(/\b\w/g, (char) => char.toUpperCase())
 }
 
+const iconByDir = {
+  AI: '\u{1F916}',
+  computer: '\u{1F4BB}',
+  database: '\u{1F5C4}\uFE0F',
+  developer: '\u{1F6E0}\uFE0F',
+  devops: '\u{1F500}',
+  git: '\u{1F33F}',
+  'organization-file': '\u{1F4C2}',
+  software: '\u{1F4D0}',
+  'utilities-script': '\u{26A1}',
+}
+
 function getCategoryLabel(dir) {
   const map = {
     about: 'About',
@@ -37,7 +49,9 @@ function getCategoryLabel(dir) {
     software: 'Software Engineering',
     utilities: 'Utilities',
   }
-  return map[dir] || humanize(dir)
+  const icon = iconByDir[dir] || ''
+  const label = map[dir] || humanize(dir)
+  return icon ? `${icon} ${label}` : label
 }
 
 async function walk(dir) {

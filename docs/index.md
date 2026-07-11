@@ -12,7 +12,7 @@ description: "Bảng mục lục toàn bộ kiến thức"
 
 ---
 
-## AI
+## 🤖 AI
 
 - [AI Coding Ecosystem Handbook](/AI/AI-coding-eco-system-overview) -- Tổng quan hệ sinh thái AI Coding từ Model, Runtime, API, Coding Agent đến IDE.
 - **Agent**
@@ -24,7 +24,7 @@ description: "Bảng mục lục toàn bộ kiến thức"
 
 ---
 
-## Computer
+## 💻 Computer
 
 - **File**
   - [Markdown — Cú Pháp Cơ Bản & Nâng Cao](/computer/file/markdown) -- Tổng hợp cú pháp Markdown - text formatting, lists, code blocks, tables, images, links, task lists, và extended syntax.
@@ -45,7 +45,7 @@ description: "Bảng mục lục toàn bộ kiến thức"
 
 ---
 
-## Database
+## 🗄️ Database
 
 - **Mysql**
   - [Collation & Character Set trong MySQL](/database/mysql/collation-charset) -- Tổng quan về character set và collation trong MySQL, cách kiểm tra và xử lý lỗi khi so sánh.
@@ -58,7 +58,7 @@ description: "Bảng mục lục toàn bộ kiến thức"
 
 ---
 
-## Developer
+## 🛠️ Developer
 
 - **Jmetter**
   - [JMeter — Chạy Test Plan Với jmeter-run.bat](/developer/jmetter/jmeter-run) -- 'Sử dụng file jmeter-run.bat để chạy JMeter non-GUI với test plan có sẵn, tự động sinh HTML report'
@@ -75,7 +75,7 @@ description: "Bảng mục lục toàn bộ kiến thức"
 
 ---
 
-## DevOps
+## 🔀 DevOps
 
 - **Builder**
   - [Build C# Backend Solution — 3 Lệnh Dotnet Cốt Lõi](/devops/builder/build-dotnet-command) -- 'Ba lệnh dotnet clean, restore, build dùng để build project/solution C# backend trong CI/CD hoặc local'
@@ -89,7 +89,7 @@ description: "Bảng mục lục toàn bộ kiến thức"
 
 ---
 
-## Git
+## 🌿 Git
 
 - [Git Commands — Các lệnh Git hay dùng nhất](/git/git-command) -- 'Danh sách các lệnh Git thông dụng nhất: branch, commit, reset, restore, conflict, credential — kèm giải thích ngắn gọn.'
 - [Hướng dẫn sử dụng Git](/git/git-guide) -- Hướng dẫn cơ bản về Git, từ khởi tạo repository, cấu hình người dùng đến đẩy mã nguồn lên GitHub.
@@ -97,13 +97,13 @@ description: "Bảng mục lục toàn bộ kiến thức"
 
 ---
 
-## Organization File
+## 📂 Organization File
 
 - [Organization File Tool](/organization-file/README) -- Công cụ tự động phân loại và di chuyển file theo loại vào các thư mục đích trên Windows.
 
 ---
 
-## Software Engineering
+## 📐 Software Engineering
 
 - [Bản Đồ Thế Giới Phần Mềm](/software/software-overview) -- Tổng quan toàn cảnh thế giới phần mềm — từ nhu cầu người dùng đến cách phần mềm đến tay người dùng.
 - [Các Loại Phần Mềm](/software/software-types) -- Hệ thống phân loại phần mềm — System, Application, Embedded, và mối quan hệ giữa chúng.
@@ -112,6 +112,6 @@ description: "Bảng mục lục toàn bộ kiến thức"
 
 ---
 
-## Utilities Script
+## ⚡ Utilities Script
 
 - [Clean Temp Windows](/utilities-script/clean-temp) -- Hướng dẫn cách clear temp với 1 click giải phóng disk windows

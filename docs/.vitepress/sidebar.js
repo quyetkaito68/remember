@@ -4,6 +4,18 @@ import path from 'path'
 const docsRoot = path.resolve(__dirname, '..')
 const ignoredDirs = new Set(['.vitepress', 'generated'])
 
+const iconByDir = {
+  AI: '\u{1F916}',
+  computer: '\u{1F4BB}',
+  database: '\u{1F5C4}\uFE0F',
+  developer: '\u{1F6E0}\uFE0F',
+  devops: '\u{1F500}',
+  git: '\u{1F33F}',
+  'organization-file': '\u{1F4C2}',
+  software: '\u{1F4D0}',
+  'utilities-script': '\u{26A1}',
+}
+
 function readFrontmatter(filePath) {
   const content = fs.readFileSync(filePath, 'utf-8')
   const match = content.match(/^---\r?\n([\s\S]*?)\r?\n---/)
@@ -76,8 +88,9 @@ function buildSidebar(directory, route = '') {
       const metadata = fs.existsSync(indexFile) ? readFrontmatter(indexFile) : {}
       if (metadata.hideFromSidebar === 'true') continue
       const text = metadata.title || humanize(entry.name)
+      const icon = route === '' ? (metadata.icon || iconByDir[entry.name] || '') : ''
       const group = {
-        text,
+        text: icon ? `${icon} ${text}` : text,
         collapsed: true,
         items: childItems,
       }
@@ -115,8 +128,10 @@ export function createNav() {
     { text: 'Home', link: '/' },
     ...rootEntries.map((entry) => {
       const metadata = readFrontmatter(path.join(docsRoot, entry.name, 'index.md'))
+      const text = metadata.title || humanize(entry.name)
+      const icon = metadata.icon || iconByDir[entry.name] || ''
       return {
-        text: metadata.title || humanize(entry.name),
+        text: icon ? `${icon} ${text}` : text,
         link: `/${entry.name}/`,
       }
     }),
