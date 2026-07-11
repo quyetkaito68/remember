@@ -78,6 +78,7 @@ function buildSidebar(directory, route = '') {
       const text = metadata.title || humanize(entry.name)
       const group = {
         text,
+        collapsed: true,
         items: childItems,
       }
       if (fs.existsSync(indexFile)) {

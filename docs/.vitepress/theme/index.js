@@ -3,6 +3,7 @@ import DefaultTheme from 'vitepress/theme'
 import Breadcrumbs from './components/Breadcrumbs.vue'
 import RelatedFilesPanel from './components/RelatedFilesPanel.vue'
 import AssetViewer from './components/AssetViewer.vue'
+import './styles/index.css'
 
 const Layout = DefaultTheme.Layout
 
