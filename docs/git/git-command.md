@@ -154,6 +154,28 @@ Git alias cho phép gõ lệnh ngắn thay vì gõ đầy đủ. Config trong `~
 
 ### Cấu hình alias
 
+
+mở file config trực tiếp:
+
+```bash
+git config --global --edit
+```
+
+Đoạn config trong `~/.gitconfig` sẽ có dạng:
+
+```ini
+[alias]
+	b = branch
+	s = status
+	cm = commit -m
+	co = checkout
+	psm = push origin main
+	psd = push origin develop
+	pd = pull origin develop
+```
+
+> **Mẹo:** Dành 5 phút config alias sẽ tiết kiệm rất nhiều thao tác gõ lệnh hàng ngày.
+
 ```bash
 # Cú pháp
 git config --global alias.<tên-tắt> "<lệnh-gốc>"
@@ -195,25 +217,6 @@ git config --global alias.clean-branches "!git branch | grep -v 'main\\|master' 
 ```bash
 git config --global --get-regexp alias
 ```
-
-hoặc mở file config trực tiếp:
-
-```bash
-git config --global --edit
-```
-
-Đoạn config trong `~/.gitconfig` sẽ có dạng:
-
-```ini
-[alias]
-	b = branch
-	d = status
-	unstage = reset HEAD --
-	last = log -1 HEAD
-	lg = log --oneline --graph --all --decorate
-```
-
-> **Mẹo:** Dành 5 phút config alias sẽ tiết kiệm rất nhiều thao tác gõ lệnh hàng ngày.
 
 ---
 

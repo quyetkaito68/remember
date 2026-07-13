@@ -60,6 +60,9 @@ description: "Bảng mục lục toàn bộ kiến thức"
 
 ## 🛠️ Developer
 
+- **Browser Extensions**
+  - [Tổng Quan Browser Extension](/developer/browser-extensions/browser-extension-overview) -- Giới thiệu toàn diện về browser extension — kiến trúc, khả năng, hạn chế, framework và stack phát triển năm 2026
+  - [Hướng Dẫn Phát Triển & Publish Browser Extension](/developer/browser-extensions/browser-extension-dev-guide) -- Cách cấu trúc project, test tại local, và publish extension lên Chrome Web Store, Firefox Add-ons, Edge Add-ons
 - **Jmetter**
   - [JMeter — Chạy Test Plan Với jmeter-run.bat](/developer/jmetter/jmeter-run) -- 'Sử dụng file jmeter-run.bat để chạy JMeter non-GUI với test plan có sẵn, tự động sinh HTML report'
   - [JMeter — Tạo Test Plan Cơ Bản](/developer/jmetter/jmeter-plan) -- 'Hướng dẫn tạo test plan JMeter từ A-Z: record request, xử lý dữ liệu, trích xuất kết quả và sinh data'
