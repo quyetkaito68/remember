@@ -88,7 +88,9 @@ description: "Bảng mục lục toàn bộ kiến thức"
 - **Jenkins**
   - [Jenkins](/devops/jenkins/jenkins)
 - **Kafka**
-  - [Apache Kafka — Thao Tác Trên Linux Server](/devops/kafka/kafka) -- 'Cài đặt, cấu hình, vận hành Kafka trên Linux — các lệnh cơ bản, xem log, xử lý sự cố'
+  - [Apache Kafka — Tổng Quan](/devops/kafka/kafka) -- 'Kafka là gì, mô hình pub-sub, kiến trúc và các công cụ GUI quản lý Kafka'
+  - [Apache Kafka — Cài Đặt & Vận Hành Trên Linux](/devops/kafka/kafka-setup) -- Cài đặt, cấu hình, các lệnh CLI cơ bản, xem log và xử lý sự cố Kafka trên Linux
+  - [Apache Kafka — Theo Dõi & Xử Lý Lag](/devops/kafka/kafka-lag) -- Cách xem lag, nguyên nhân lag tăng cao và các biện pháp xử lý trong Kafka
 
 ---
 
