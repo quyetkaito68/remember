@@ -30,6 +30,7 @@ const iconByDir = {
   database: '\u{1F5C4}\uFE0F',
   developer: '\u{1F6E0}\uFE0F',
   devops: '\u{1F500}',
+  game: '\u{1F3AE}',
   git: '\u{1F33F}',
   'organization-file': '\u{1F4C2}',
   software: '\u{1F4D0}',

@@ -94,6 +94,20 @@ description: "Bảng mục lục toàn bộ kiến thức"
 
 ---
 
+## 🎮 Game
+
+- [Tổng quan Game Development](/game/00-overview) -- Tổng quan ngành phát triển game từ ý tưởng đến sản phẩm hoàn chỉnh
+- [Lịch sử Công nghệ Game](/game/01-history) -- Tiến hóa công nghệ game từ Assembly đến Generative AI
+- [Phân loại Game](/game/02-game-types) -- Phân loại game theo đồ họa (2D/3D/VR) và gameplay (FPS/RPG/MOBA)
+- [Nền tảng Game](/game/03-platforms) -- Các nền tảng mà game có thể chạy trên - PC, Console, Mobile, Browser, Cloud, VR/AR
+- [Game Engine](/game/04-game-engines) -- Cấu trúc game engine và các chuẩn chung
+- [Graphics API](/game/05-graphics-api) -- Lớp giao tiếp trực tiếp giữa Game/Engine và GPU - OpenGL, Vulkan, DirectX, Metal
+- [Game Loop](/game/07-game-loop) -- Chu trình lặp Input → Update → Render - "trái tim" của mọi game
+- [Kiến trúc Game](/game/17-architecture) -- ECS, Component Based, Actor Model - các kiến trúc phổ biến trong game dev
+- [Lộ trình học Game Development](/game/roadmap) -- Từ cơ bản đến AAA Architecture
+
+---
+
 ## 🌿 Git
 
 - [Git Commands — Các lệnh Git hay dùng nhất](/git/git-command) -- 'Danh sách các lệnh Git thông dụng nhất: branch, commit, reset, restore, conflict, credential — kèm giải thích ngắn gọn.'
