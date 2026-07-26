@@ -16,7 +16,7 @@
 | `docs/public/` | Copied assets at build time (gitignored). |
 | `docs/generated/` | Auto-generated asset viewer pages (gitignored). |
 | `templates/` | **New.** Markdown templates per content type — pick the right one for each new file. |
-| `scripts/` | `generate-assets.js` — scans `docs/`, builds manifest, copies assets, generates pages. `read-document.py` — reads .docx/.pdf files and outputs markdown. `verify-diagram.ps1` — checks ASCII diagram alignment. |
+| `scripts/` | `generate-assets.js` — scans `docs/`, builds manifest, copies assets, generates pages. `read-document.py` — reads .docx/.pdf files and outputs markdown. `test-build.ps1` — build test flow with retry and dev server shutdown. |
 | `.github/workflows/` | `deploy.yml` — CI/CD to GitHub Pages. |
 
 ## Architecture
@@ -43,6 +43,7 @@ Browser:
 
 ## Content Rules
 
+- Before generating any document: always read `.ai/writing-philosophy.md`
 - Each topic folder under `docs/` contains `.md` file(s) + related asset files (`.bat`, `.ps1`, `.sql`, etc.).
 - Asset files (non-md) are automatically detected by `generate-assets.js`.
 - All markdown files use frontmatter: `title`, `description`, `tags`, `category`, `updated`, `order`.
@@ -104,4 +105,60 @@ Dependencies: `python-docx`, `pypdf` (installed globally).
 
 ## ASCII Diagram Rules
 
-Xem skill `ascii-diagram` (.claude/skills/ascii-diagram/SKILL.md) cho quy tắc đầy đủ. Chạy `powershell -File scripts/verify-diagram.ps1 -File <path-to-md>` để verify diagram.
+Xem skill `ascii-diagram` (.claude/skills/ascii-diagram-validator/SKILL.md) cho quy tắc đầy đủ.
+
+**Validate diagram:**
+```bash
+python .claude/skills/ascii-diagram-validator/scripts/check_ascii_alignment.py docs/FILE.md
+```
+
+**Auto-fix diagram:**
+```bash
+python .claude/skills/ascii-diagram-validator/scripts/check_ascii_alignment.py docs/FILE.md --fix
+```
+
+**Preview fix (dry-run):**
+```bash
+python .claude/skills/ascii-diagram-validator/scripts/check_ascii_alignment.py docs/FILE.md --fix --dry-run
+```
+
+## Build Test Flow
+
+### Khi nào cần run test
+
+| Action | Cần test? |
+|--------|-----------|
+| Thêm/sửa 1 file markdown | **Không** — chỉ check frontmatter YAML hợp lệ |
+| Thêm topic mới (nhiều files) | **Có** — chạy full build test |
+| Sửa Vue component / theme | **Có** — chạy dev server test |
+| Sửa script build / pipeline | **Có** — chạy full build test |
+
+### Test script
+
+```powershell
+# Build only (nhanh)
+powershell -File scripts/test-build.ps1
+
+# Build + dev server test
+powershell -File scripts/test-build.ps1 -Dev
+
+# Giới hạn retry
+powershell -File scripts/test-build.ps1 -MaxRetry 5
+```
+
+### Flow khi thêm topic lớn
+
+1. Tạo tất cả files markdown theo template
+2. Verify frontmatter: mỗi file phải có `title`, `description` (quote nếu chứa `:`), `tags`, `category`, `updated`, `order`
+3. Chạy `powershell -File scripts/test-build.ps1`
+4. Nếu lỗi → fix → retry (tối đa 3 lần)
+5. Nếu thành công → hoàn thành
+
+### Frontmatter checklist (trước khi build)
+
+- `title`: **không quote**, không trùng `order`
+- `description`: **phải quote** (`"..."`) nếu chứa ký tự `:`
+- `tags`: array `[tag1, tag2]`
+- `category`: `developer` hoặc `computer`
+- `updated`: `YYYY-MM-DD`
+- `order`: số nguyên, unique trong folder

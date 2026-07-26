@@ -63,6 +63,43 @@ description: "Bảng mục lục toàn bộ kiến thức"
 - **Browser Extensions**
   - [Tổng Quan Browser Extension](/developer/browser-extensions/browser-extension-overview) -- Giới thiệu toàn diện về browser extension — kiến trúc, khả năng, hạn chế, framework và stack phát triển năm 2026
   - [Hướng Dẫn Phát Triển & Publish Browser Extension](/developer/browser-extensions/browser-extension-dev-guide) -- Cách cấu trúc project, test tại local, và publish extension lên Chrome Web Store, Firefox Add-ons, Edge Add-ons
+- **Browsers And Chrome Devtools**
+  - [00 Overview](/developer/browsers-and-chrome-devtools/00-overview)
+  - [01 Browser Architecture](/developer/browsers-and-chrome-devtools/01-browser-architecture)
+  - [02 Rendering Engine](/developer/browsers-and-chrome-devtools/02-rendering-engine)
+  - [03 Javascript Engine](/developer/browsers-and-chrome-devtools/03-javascript-engine)
+  - [04 Rendering Pipeline](/developer/browsers-and-chrome-devtools/04-rendering-pipeline)
+  - [05 Dom Cssom](/developer/browsers-and-chrome-devtools/05-dom-cssom)
+  - [06 Layout Paint Composite](/developer/browsers-and-chrome-devtools/06-layout-paint-composite)
+  - [07 Event Loop](/developer/browsers-and-chrome-devtools/07-event-loop)
+  - [08 Web Apis](/developer/browsers-and-chrome-devtools/08-web-apis)
+  - [09 Networking](/developer/browsers-and-chrome-devtools/09-networking)
+  - [10 Http Lifecycle](/developer/browsers-and-chrome-devtools/10-http-lifecycle)
+  - [11 Http2 Http3](/developer/browsers-and-chrome-devtools/11-http2-http3)
+  - [12 Browser Cache](/developer/browsers-and-chrome-devtools/12-browser-cache)
+  - [13 Web Storage](/developer/browsers-and-chrome-devtools/13-web-storage)
+  - [14 Service Worker Pwa](/developer/browsers-and-chrome-devtools/14-service-worker-pwa)
+  - [15 Websocket Sse](/developer/browsers-and-chrome-devtools/15-websocket-sse)
+  - [16 Webassembly](/developer/browsers-and-chrome-devtools/16-webassembly)
+  - [17 Browser Security](/developer/browsers-and-chrome-devtools/17-browser-security)
+  - [18 Xss Csrf](/developer/browsers-and-chrome-devtools/18-xss-csrf)
+  - [19 Chrome Devtools](/developer/browsers-and-chrome-devtools/19-chrome-devtools)
+  - [20 Devtools Elements](/developer/browsers-and-chrome-devtools/20-devtools-elements)
+  - [21 Devtools Network](/developer/browsers-and-chrome-devtools/21-devtools-network)
+  - [22 Devtools Sources](/developer/browsers-and-chrome-devtools/22-devtools-sources)
+  - [23 Devtools Performance](/developer/browsers-and-chrome-devtools/23-devtools-performance)
+  - [24 Devtools Memory](/developer/browsers-and-chrome-devtools/24-devtools-memory)
+  - [25 Devtools Application](/developer/browsers-and-chrome-devtools/25-devtools-application)
+  - [26 Lighthouse](/developer/browsers-and-chrome-devtools/26-lighthouse)
+  - [27 Cdp](/developer/browsers-and-chrome-devtools/27-cdp)
+  - [28 Puppeteer Playwright](/developer/browsers-and-chrome-devtools/28-puppeteer-playwright)
+  - [29 Browser Automation](/developer/browsers-and-chrome-devtools/29-browser-automation)
+  - [30 Reverse Engineering](/developer/browsers-and-chrome-devtools/30-reverse-engineering)
+  - [31 Web Scraping](/developer/browsers-and-chrome-devtools/31-web-scraping)
+  - [32 Anti Bot](/developer/browsers-and-chrome-devtools/32-anti-bot)
+  - [33 Performance Optimization](/developer/browsers-and-chrome-devtools/33-performance-optimization)
+  - [34 Debugging Guide](/developer/browsers-and-chrome-devtools/34-debugging-guide)
+  - [35 Case Studies](/developer/browsers-and-chrome-devtools/35-case-studies)
 - **Jmetter**
   - [JMeter — Chạy Test Plan Với jmeter-run.bat](/developer/jmetter/jmeter-run) -- 'Sử dụng file jmeter-run.bat để chạy JMeter non-GUI với test plan có sẵn, tự động sinh HTML report'
   - [JMeter — Tạo Test Plan Cơ Bản](/developer/jmetter/jmeter-plan) -- 'Hướng dẫn tạo test plan JMeter từ A-Z: record request, xử lý dữ liệu, trích xuất kết quả và sinh data'
