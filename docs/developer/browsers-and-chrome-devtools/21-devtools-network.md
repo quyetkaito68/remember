@@ -22,19 +22,115 @@ Monitor tất cả network requests — filter, analyze waterfall, debug API cal
 │  Filters:                                                    │
 │  [All] [Fetch/XHR] [JS] [CSS] [Img] [Media] [Font] [WS]      │
 ├──────────────────────────────────────────────────────────────┤
-│  Name          Method  Status  Size     Time   Waterfall     │
+│  Name          Method  Status  Size       Time   Waterfall   │
 │  ─────────────────────────────────────────────────────────── │
-│  index.html    GET     200     14.2 KB  85ms   ████████      │
-│  style.css     GET     304     0 B      23ms   ██            │
-│  app.js        GET     200     52.1 KB  142ms  ████████████  │
-│  api/user      GET     200     1.2 KB   245ms  ████████████  │
+│  index.html    GET     200     14.5 KB    85ms   ████████    │
+│  style.css     GET     304     0 B        23ms   ██          │
+│  app.js        GET     200     52.1 KB    142ms  ████████████│
+│  api/user      GET     200     1.2 KB     245ms  ████████████│
 ├──────────────────────────────────────────────────────────────┤
 │  8 requests  |  260 KB transferred  |  1.2 MB resources      │
 │  Finish: 1.2s  |  DOMContentLoaded: 850ms  |  Load: 1.2s     │
 └──────────────────────────────────────────────────────────────┘
+
+Hover vào Size → tooltip: "Served from disk cache, resource size: 14.5 KB"
 ```
 
 ---
+
+## Disable Cache
+
+Checkbox `Disable cache` ở thanh toolbar — **chỉ có hiệu lực khi DevTools đang mở**.
+
+### Cách hoạt động
+
+```text
+Disable cache ☑ (DevTools mở)
+─────────────────────────────────
+Browser request → BỎ QUA disk/memory cache
+                → Luôn gửi request mới đến server
+                → Server trả 200 OK + body đầy đủ
+
+Disable cache ☐ (hoặc DevTools đóng)
+─────────────────────────────────
+Browser request → Check cache trước
+                ├── Có cache hợp lệ → 304 Not Modified (0 KB)
+                └── Không có cache → 200 OK + body mới
+```
+
+### Size column — cách đọc
+
+Mỗi dòng request hiển thị **1 giá trị** trong cột Size:
+
+```text
+  Name          Size
+  ─────────────────────
+  index.html    14.5 KB          ← từ network hoặc cache
+  style.css     0 B              ← từ cache
+  app.js        52.1 KB          ← từ network
+```
+
+**Hover vào Size** → tooltip hiện chi tiết:
+
+```text
+┌───────────────────────────────────────────────────────────────────────┐
+│  Serve from disk cache, resource size: 14.5 KB                        │
+│              ↑ từ đâu                  ↑ kích thước file gốc (decoded)│
+└───────────────────────────────────────────────────────────────────────┘
+```
+
+| Tooltip format | Ý nghĩa |
+|----------------|----------|
+| `Served from disk cache, resource size: X KB` | Không có request mạng, dùng cache disk |
+| `Served from memory cache, resource size: X KB` | Không có request mạng, dùng cache RAM |
+| `Transferred: X KB, resource size: Y KB` | Có request mạng — X = nén (gzip), Y = file gốc |
+
+```text
+Ví dụ hover:
+─────────────────────────────────────────────────
+Case 1 — Cached:
+  "Served from disk cache, resource size: 14.5 KB"
+   → Không request, browser dùng file cũ từ disk
+   → Size column hiển thị: 0 B (from disk cache)
+
+Case 2 — Network, có gzip:
+  "Transferred: 42 KB, resource size: 150 KB"
+   → Browser nhận 42 KB (nén), giải nén thành 150 KB
+   → Size column hiển thị: 42 KB
+
+Case 3 — Network, không gzip:
+  "Transferred: 150 KB, resource size: 150 KB"
+   → Browser nhận 150 KB (không nén)
+   → Size column hiển thị: 150 KB
+```
+
+**Status bar** (dòng cuối) tổng hợp tất cả requests:
+
+```text
+8 requests  |  260 KB transferred  |  1.2 MB resources
+             ↑ tổng từ network      ↑ tổng decoded (file gốc)
+```
+
+### Các trường hợp đặc biệt
+
+| Hiển thị trong cột | Hover tooltip | Ý nghĩa |
+|---------------------|---------------|----------|
+| `52.1 KB` | `Transferred: 52.1 KB, resource size: 52.1 KB` | Network, không gzip |
+| `42 KB` | `Transferred: 42 KB, resource size: 150 KB` | Network, có gzip |
+| `0 B (from disk cache)` | `Served from disk cache, resource size: 14.5 KB` | Cached disk |
+| `0 B (from memory cache)` | `Served from memory cache, resource size: 8.2 KB` | Cached RAM |
+| `Pending...` | — | Request đang xử lý |
+
+Khi `Disable cache` bật → Size column **luôn hiển thị kích thước thực** (transferred), không bao giờ `from cache`.
+
+### Khi nào dùng
+
+| Use Case | Giải thích |
+|----------|-----------|
+| Dev/Coding | Thấy ngay file CSS/JS mới sau khi save, không cần hard refresh |
+| Debug caching | So sánh response khi có/không có cache |
+| Test fresh load | Mô phỏng user lần đầu visit trang |
+| Verify Cache-Control | Xem header caching có đúng logic không |
 
 ## Filter
 
