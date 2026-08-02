@@ -1,6 +1,6 @@
 ---
 # ─── BẮT BUỘC ───────────────────────────────────────────
-title: Tiêu Đề Kỹ Thuật
+title: Tiêu Đề Kỹ Thuật      # BẮT BUỘC — tối đa 5 từ, ngắn gọn
 description: Mô tả vấn đề kỹ thuật và giải pháp
 tags: [tag1, tag2, tag3]
 category: tên-thư-mục
@@ -103,6 +103,7 @@ SELECT …
 ======================================================================
   METADATA CHO AGENT
   - Loại: technical-reference
+  - title: tối đa 5 TỪ, ngắn gọn (hiển thị ở sidebar & nav)
   - Luôn ghi nguyên văn error message
   - Mỗi giải pháp ghi rõ ưu/nhược điểm
   - Code block dùng đúng language identifier

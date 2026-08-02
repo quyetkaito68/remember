@@ -1,6 +1,6 @@
 ---
 # ─── BẮT BUỘC ───────────────────────────────────────────
-title: Tên Công Cụ / Script
+title: Tên Công Cụ / Script  # BẮT BUỘC — tối đa 5 từ, ngắn gọn
 description: Mô tả chức năng và cách dùng script
 tags: [tag1, tag2, tag3]
 category: tên-thư-mục
@@ -116,6 +116,7 @@ script-name.bat param1
 ======================================================================
   METADATA CHO AGENT
   - Loại: script-documentation
+  - title: tối đa 5 TỪ, ngắn gọn (hiển thị ở sidebar & nav)
   - Luôn format code block với đúng language identifier
   - Table tham số đầy đủ: tên, kiểu, bắt buộc, mô tả
   - Có ít nhất 1 ví dụ cụ thể

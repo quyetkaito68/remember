@@ -1,6 +1,6 @@
 ---
 # ─── BẮT BUỘC ───────────────────────────────────────────
-title: Tối Ưu Token Cho AI Coding Agent
+title: Tối ưu Token
 description: Hướng dẫn agent-agnostic về tiết kiệm token, quản lý context window và kỹ thuật prompting cho mọi AI coding agent (opencode, Claude Code, Cline, Continue...).
 tags: [token, optimization, prompt, context-window, caching, agent]
 category: ai

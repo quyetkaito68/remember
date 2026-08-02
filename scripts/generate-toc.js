@@ -5,6 +5,11 @@ import path from 'path'
 const ROOT = process.cwd()
 const DOCS = path.join(ROOT, 'docs')
 const IGNORE_DIRS = new Set(['.vitepress', 'generated', 'public', 'node_modules', '.git'])
+const MAX_TITLE_WORDS = 5
+
+function countWords(value) {
+  return (String(value).match(/[\p{L}\p{N}]+/gu) || []).length
+}
 
 function readFrontmatter(content) {
   const match = content.match(/^---\r?\n([\s\S]*?)\r?\n---/)
@@ -75,6 +80,7 @@ async function main() {
   const files = await walk(DOCS)
 
   const pages = []
+  const titleWarnings = []
   for (const f of files) {
     if (!f.toLowerCase().endsWith('.md')) continue
 
@@ -97,7 +103,17 @@ async function main() {
     const description = meta.description || ''
     const order = meta.order !== undefined ? Number(meta.order) : 999
 
+    const titleWords = countWords(title)
+    if (titleWords > MAX_TITLE_WORDS) {
+      titleWarnings.push(`${rel}: "${title}" (${titleWords} từ, tối đa ${MAX_TITLE_WORDS})`)
+    }
+
     pages.push({ route, title, description, order, category, rel })
+  }
+
+  if (titleWarnings.length > 0) {
+    console.warn(`[title-rule] Cảnh báo: ${titleWarnings.length} trang có title dài hơn ${MAX_TITLE_WORDS} từ:`)
+    for (const w of titleWarnings) console.warn('  - ' + w)
   }
 
   pages.sort((a, b) => {

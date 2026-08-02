@@ -1,6 +1,6 @@
 ---
 # ─── BẮT BUỘC ───────────────────────────────────────────
-title: Tiêu Đề Hướng Dẫn
+title: Tiêu Đề Hướng Dẫn      # BẮT BUỘC — tối đa 5 từ, ngắn gọn
 description: Mô tả ngắn gọn nội dung (1-2 câu)
 tags: [tag1, tag2, tag3]
 category: tên-thư-mục       # Tên thư mục chứa file
@@ -113,6 +113,7 @@ Kết quả: {{mô tả kết quả mong đợi}}
   METADATA CHO AGENT
   - Loại: tutorial-guide
   - Bắt buộc: title, description, tags, category, updated
+  - title: tối đa 5 TỪ, ngắn gọn (hiển thị ở sidebar & nav)
   - Không bắt buộc: order
   - Sử dụng tiếng Việt có dấu trong toàn bộ nội dung
   - Code block luôn có ngôn ngữ identifier

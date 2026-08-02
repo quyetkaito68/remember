@@ -1,5 +1,5 @@
 ---
-title: OpenCode — AI Coding Agent
+title: OpenCode
 description: OpenCode là AI coding agent mã nguồn mở chạy trong terminal, hỗ trợ đa model (Claude, GPT, Gemini,...) cho lập trình viên.
 tags: [opencode, ai, coding-agent, terminal, opensource]
 category: ai

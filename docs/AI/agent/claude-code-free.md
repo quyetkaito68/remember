@@ -1,5 +1,5 @@
 ---
-title: Hướng Dẫn Kết Nối Claude Code Với Miễn Phí Qua OpenRouter
+title: Claude Code Free
 description: Hướng dẫn cấu hình Claude Code sử dụng model AI miễn phí thông qua OpenRouter thay vì dùng API key chính thức của Anthropic.
 tags: [claude, openrouter, ai, free, coding-agent]
 category: ai

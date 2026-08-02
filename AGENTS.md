@@ -47,6 +47,7 @@ Browser:
 - Each topic folder under `docs/` contains `.md` file(s) + related asset files (`.bat`, `.ps1`, `.sql`, etc.).
 - Asset files (non-md) are automatically detected by `generate-assets.js`.
 - All markdown files use frontmatter: `title`, `description`, `tags`, `category`, `updated`, `order`.
+- `title` phải **ngắn gọn, tối đa 5 từ** (hiển thị trực tiếp ở sidebar & nav). `generate-toc.js` sẽ cảnh báo khi title dài hơn 5 từ.
 - `order` in frontmatter controls sidebar sort position.
 - Create `index.md` in a folder to make it appear in the top nav bar.
 

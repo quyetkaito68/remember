@@ -15,7 +15,7 @@ $projectRoot = Split-Path $PSScriptRoot -Parent
 function Test-Build {
     Write-Host "`n=== Build Test ===" -ForegroundColor Cyan
     Push-Location $projectRoot
-    npm run build 2>&1
+    npm run build 2>&1 | Out-Host
     $exitCode = $LASTEXITCODE
     Pop-Location
     return $exitCode

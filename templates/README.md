@@ -24,7 +24,7 @@ Bộ template này giúp **human** và **AI agent** viết markdown đồng nh�
 
 ```yaml
 ---
-title: Tiêu đề                  # BẮT BUỘC — hiển thị sidebar & trình duyệt
+title: Tiêu đề                  # BẮT BUỘC — NGẮN GỌN, tối đa 5 từ
 description: Mô tả 1-2 câu       # BẮT BUỘC — SEO & search
 tags: [tag1, tag2]                  # BẮT BUỘC — YAML array, lowercase
 category: 'tên-thư-mục'            # KHUYẾN NGHỊ — tên folder chứa file
@@ -32,6 +32,8 @@ updated: YYYY-MM-DD                # BẮT BUỘC — ngày viết/sửa
 order: 1                           # TÙY CHỌN — vị trí sidebar (mặc định 999)
 ---
 ```
+
+> **QUY TẮC `title`:** tối đa **5 từ** (hiển thị trực tiếp ở sidebar & nav). `generate-toc.js` sẽ cảnh báo khi title dài hơn 5 từ. Dùng tiêu đề ngắn, đủ ý; đưa chi tiết vào `description`.
 
 ### Nội dung
 

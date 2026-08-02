@@ -1,6 +1,6 @@
 ---
 # ─── BẮT BUỘC ───────────────────────────────────────────
-title: Tổng Quan Về Chủ Đề
+title: Tổng Quan Về Chủ Đề   # BẮT BUỘC — tối đa 5 từ, ngắn gọn
 description: Mô tả ngắn gọn phạm vi bài viết
 tags: [tag1, tag2, tag3]
 category: tên-thư-mục
@@ -104,6 +104,7 @@ Text…
 ======================================================================
   METADATA CHO AGENT
   - Loại: topic-overview
+  - title: tối đa 5 TỪ, ngắn gọn (hiển thị ở sidebar & nav)
   - Dùng ASCII diagram để minh họa kiến trúc
   - Table so sánh phải rõ ràng, có tiêu chí cụ thể
   - Cuối bài luôn có phần tóm tắt

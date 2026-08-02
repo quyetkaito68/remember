@@ -1,6 +1,6 @@
 ---
 # ─── BẮT BUỘC ───────────────────────────────────────────
-title: Token — Claude Code CLI Specific
+title: Token
 description: Các kỹ thuật tiết kiệm token đặc thù cho Claude Code CLI — slash commands, CLAUDE.md, Plan Mode, Sub-agents.
 tags: [claude, token, claude-code, optimization]
 category: ai

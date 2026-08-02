@@ -1,5 +1,5 @@
 ---
-title: Mermaid — Biểu Đồ Từ Markdown
+title: Mermaid
 description: Hướng dẫn sử dụng Mermaid - Flowchart, Sequence, Class, Gantt, Pie — render diagram trực tiếp từ Markdown.
 tags: [mermaid, diagram, flowchart, markdown]
 category: computer/file

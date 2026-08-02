@@ -27,20 +27,21 @@ description: "Bảng mục lục toàn bộ kiến thức"
 ## 💻 Computer
 
 - **File**
-  - [Markdown — Cú Pháp Cơ Bản & Nâng Cao](/computer/file/markdown) -- Tổng hợp cú pháp Markdown - text formatting, lists, code blocks, tables, images, links, task lists, và extended syntax.
-  - [Mermaid — Biểu Đồ Từ Markdown](/computer/file/mermaid) -- Hướng dẫn sử dụng Mermaid - Flowchart, Sequence, Class, Gantt, Pie — render diagram trực tiếp từ Markdown.
+  - [Markdown](/computer/file/markdown) -- Tổng hợp cú pháp Markdown - text formatting, lists, code blocks, tables, images, links, task lists, và extended syntax.
+  - [Mermaid](/computer/file/mermaid) -- Hướng dẫn sử dụng Mermaid - Flowchart, Sequence, Class, Gantt, Pie — render diagram trực tiếp từ Markdown.
 - **Linux**
   - [Vim — Các lệnh cơ bản để chỉnh sửa file](/computer/linux/vim-command) -- 'Các thao tác Vim cơ bản nhất: mở file, edit, save, delete, select, exit, và các mode.'
   - [Nano — Các lệnh cơ bản để chỉnh sửa file](/computer/linux/nano-command) -- 'Các thao tác Nano cơ bản nhất: mở file, edit, save, search, cut, exit.'
 - **Network Internet**
   - [Network & Internet Cơ Bản](/computer/network-internet/network-internet-co-ban) -- Kiến thức cơ bản về mạng máy tính và internet, bao gồm ISP, DNS, địa chỉ IP và các giao thức mạng.
 - **System Admin**
-  - [Tổng Quan Về PAM (Privileged Access Management)](/computer/system-admin/pam) -- 'Kiến trúc, luồng hoạt động và các giải pháp PAM dùng trong doanh nghiệp để quản lý truy cập remote vào hệ thống máy chủ'
+  - [PAM](/computer/system-admin/pam) -- 'Kiến trúc, luồng hoạt động và các giải pháp PAM dùng trong doanh nghiệp để quản lý truy cập remote vào hệ thống máy chủ'
   - [Vdi](/computer/system-admin/vdi)
 - **Windows**
   - [Mklink — Symbolic Link Trên Windows](/computer/windows/mklink) -- 'Cách tạo symbolic link (symlink) trên Windows bằng lệnh mklink — trỏ folder/file ảo đến vị trí thật'
   - [Tạo Scheduled Task Trên Windows](/computer/windows/create-task) -- 'Hướng dẫn tạo task chạy định kỳ bằng Task Scheduler — ví dụ với script clean-temp.bat dọn dẹp temp hàng ngày'
   - [RAM trên Windows](/computer/windows/RAM) -- 'Hiểu toàn diện về RAM trên Windows: physical memory, virtual memory, commit, pagefile, working set, cache, memory leak, cách đọc Task Manager và các công cụ chẩn đoán.'
+  - [User, Group & Permission Trên Windows](/computer/windows/user-user-role-permission) -- 'Mô hình quản lý user, group, permission trên Windows và cách phân quyền thực tế cho một máy tính dùng chung trong gia đình.'
   - [Dọn dẹp AppData trên Windows (An toàn & Hiệu quả)](/computer/windows/don-dep-appdata-windows) -- Hướng dẫn dọn dẹp thư mục AppData trên Windows an toàn, bao gồm cache ứng dụng, file tạm và dữ liệu còn sót lại sau khi uninstall.
 
 ---

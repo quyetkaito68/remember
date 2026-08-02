@@ -1,5 +1,5 @@
 ---
-title: Markdown — Cú Pháp Cơ Bản & Nâng Cao
+title: Markdown
 description: Tổng hợp cú pháp Markdown - text formatting, lists, code blocks, tables, images, links, task lists, và extended syntax.
 tags: [markdown, syntax, formatting]
 category: computer/file
