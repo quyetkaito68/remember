@@ -1,5 +1,5 @@
 ---
-title: Vim — Các lệnh cơ bản để chỉnh sửa file
+title: Vim
 description: 'Các thao tác Vim cơ bản nhất: mở file, edit, save, delete, select, exit, và các mode.'
 tags: [vim, linux, terminal, editor]
 category: linux

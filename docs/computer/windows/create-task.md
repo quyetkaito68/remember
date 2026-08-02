@@ -1,5 +1,5 @@
 ---
-title: Tạo Scheduled Task Trên Windows
+title: Tạo Task Windows
 description: 'Hướng dẫn tạo task chạy định kỳ bằng Task Scheduler — ví dụ với script clean-temp.bat dọn dẹp temp hàng ngày'
 tags: [windows, task-scheduler, scheduled-task, automation, batch]
 category: 'computer/windows'

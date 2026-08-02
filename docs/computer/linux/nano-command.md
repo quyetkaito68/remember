@@ -1,5 +1,5 @@
 ---
-title: Nano — Các lệnh cơ bản để chỉnh sửa file
+title: Nano
 description: 'Các thao tác Nano cơ bản nhất: mở file, edit, save, search, cut, exit.'
 tags: [nano, linux, terminal, editor]
 category: linux

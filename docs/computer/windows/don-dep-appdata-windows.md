@@ -1,5 +1,5 @@
 ---
-title: Dọn dẹp AppData trên Windows (An toàn & Hiệu quả)
+title: Dọn dẹp AppData trên Windows
 description: Hướng dẫn dọn dẹp thư mục AppData trên Windows an toàn, bao gồm cache ứng dụng, file tạm và dữ liệu còn sót lại sau khi uninstall.
 tags: [windows, appdata, cleanup, disk-space]
 category: computer

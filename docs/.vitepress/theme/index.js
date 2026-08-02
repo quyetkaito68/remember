@@ -3,6 +3,7 @@ import DefaultTheme from 'vitepress/theme'
 import Breadcrumbs from './components/Breadcrumbs.vue'
 import RelatedFilesPanel from './components/RelatedFilesPanel.vue'
 import AssetViewer from './components/AssetViewer.vue'
+import BackToTop from './components/BackToTop.vue'
 import './styles/index.css'
 
 const Layout = DefaultTheme.Layout
@@ -12,7 +13,8 @@ export default {
   Layout() {
     return h(Layout, null, {
       'doc-top': () => h(Breadcrumbs),
-      'doc-footer-before': () => h(RelatedFilesPanel)
+      'doc-footer-before': () => h(RelatedFilesPanel),
+      'layout-bottom': () => h(BackToTop)
     })
   },
   enhanceApp({ app }) {

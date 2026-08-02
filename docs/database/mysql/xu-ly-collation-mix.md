@@ -1,5 +1,5 @@
 ---
-title: Xử lý collation hỗn hợp trong MySQL
+title: Xử lý collation mix trong MySQL
 description: Nguyên nhân, chẩn đoán và cách xử lý khi gặp tình trạng mix collation (connection/session, biến user-defined, TEXT vs VARCHAR).
 tags: [mysql, collation, connection, text, varchar]
 category: database
@@ -112,7 +112,7 @@ Biến user-defined (@v_ReportID) không có collation cố định ngay từ đ
 Khi gán giá trị 'InInventoryItem' cho @v_ReportID, MySQL sẽ gán cho nó một collation mặc định dựa trên character_set_connection hiện tại.
 Nếu ReportID trong bảng report_list có collation khác với @v_ReportID, MySQL có thể tự động ép kiểu hoặc gây lỗi (trong một số chế độ strict).
 
-## set characterset mà không set kèm collation => nguyên nhân chính gây lỗi
+## Set characterset mà không set kèm collation => nguyên nhân chính gây lỗi
 
  để ý trong các script có script nào set character_set_connection về utf8mb4 hay không, nếu chỉ set character_set_connection về utf8mb4 thì khi đó collation_connection sẽ ăn theo mặc định của utf8mb4 => tức là về utf8mb4_0900_ai_ci chứ ko phải as_ci => do đó khi gán thì phải gán theo cặp. Gán cả utf8mb4 và collation_connection về utf8mb4_0900_as_ci luôn.
 

@@ -6,6 +6,16 @@ description: "Bảng mục lục toàn bộ kiến thức"
 # MỤC LỤC
 ---
 
+## 00 Life
+
+- **Tips**
+  - [Cach Gap Quan Ao](/00-life/tips/cach-gap-quan-ao)
+  - [Cach That Nut](/00-life/tips/cach-that-nut)
+- **Y HọC**
+  - [Dot Quy](/00-life/y-học/dot-quy)
+
+---
+
 ## About
 
 - [About](/about) -- Kiến trúc tổng thể và luồng hoạt động của website REMEMBER
@@ -14,13 +24,13 @@ description: "Bảng mục lục toàn bộ kiến thức"
 
 ## 🤖 AI
 
-- [AI Coding Ecosystem Handbook](/AI/AI-coding-eco-system-overview) -- Tổng quan hệ sinh thái AI Coding từ Model, Runtime, API, Coding Agent đến IDE.
+- [AI Coding Ecosystem](/AI/AI-coding-eco-system-overview) -- Tổng quan hệ sinh thái AI Coding từ Model, Runtime, API, Coding Agent đến IDE.
 - **Agent**
-  - [Hướng Dẫn Kết Nối Claude Code Với Miễn Phí Qua OpenRouter](/AI/agent/claude-code-free) -- Hướng dẫn cấu hình Claude Code sử dụng model AI miễn phí thông qua OpenRouter thay vì dùng API key chính thức của Anthropic.
-  - [Danh sách AI Coding Agent](/AI/agent/list-agent-code) -- Danh sách các AI Coding Agent phổ biến, sắp xếp theo thời gian ra mắt, kèm rating, giá và tính năng chính.
-  - [OpenCode — AI Coding Agent](/AI/agent/opencode) -- OpenCode là AI coding agent mã nguồn mở chạy trong terminal, hỗ trợ đa model (Claude, GPT, Gemini,...) cho lập trình viên.
-  - [Tối Ưu Token Cho AI Coding Agent](/AI/agent/token-optimization) -- Hướng dẫn agent-agnostic về tiết kiệm token, quản lý context window và kỹ thuật prompting cho mọi AI coding agent (opencode, Claude Code, Cline, Continue...).
-  - [Token — Claude Code CLI Specific](/AI/agent/token-claude-code) -- Các kỹ thuật tiết kiệm token đặc thù cho Claude Code CLI — slash commands, CLAUDE.md, Plan Mode, Sub-agents.
+  - [Claude Code Free](/AI/agent/claude-code-free) -- Hướng dẫn cấu hình Claude Code sử dụng model AI miễn phí thông qua OpenRouter thay vì dùng API key chính thức của Anthropic.
+  - [AI Agent Coding](/AI/agent/list-agent-code) -- Danh sách các AI Coding Agent phổ biến, sắp xếp theo thời gian ra mắt, kèm rating, giá và tính năng chính.
+  - [OpenCode](/AI/agent/opencode) -- OpenCode là AI coding agent mã nguồn mở chạy trong terminal, hỗ trợ đa model (Claude, GPT, Gemini,...) cho lập trình viên.
+  - [Tối ưu Token](/AI/agent/token-optimization) -- Hướng dẫn agent-agnostic về tiết kiệm token, quản lý context window và kỹ thuật prompting cho mọi AI coding agent (opencode, Claude Code, Cline, Continue...).
+  - [Token](/AI/agent/token-claude-code) -- Các kỹ thuật tiết kiệm token đặc thù cho Claude Code CLI — slash commands, CLAUDE.md, Plan Mode, Sub-agents.
 
 ---
 
@@ -30,19 +40,20 @@ description: "Bảng mục lục toàn bộ kiến thức"
   - [Markdown](/computer/file/markdown) -- Tổng hợp cú pháp Markdown - text formatting, lists, code blocks, tables, images, links, task lists, và extended syntax.
   - [Mermaid](/computer/file/mermaid) -- Hướng dẫn sử dụng Mermaid - Flowchart, Sequence, Class, Gantt, Pie — render diagram trực tiếp từ Markdown.
 - **Linux**
-  - [Vim — Các lệnh cơ bản để chỉnh sửa file](/computer/linux/vim-command) -- 'Các thao tác Vim cơ bản nhất: mở file, edit, save, delete, select, exit, và các mode.'
-  - [Nano — Các lệnh cơ bản để chỉnh sửa file](/computer/linux/nano-command) -- 'Các thao tác Nano cơ bản nhất: mở file, edit, save, search, cut, exit.'
+  - [Vim](/computer/linux/vim-command) -- 'Các thao tác Vim cơ bản nhất: mở file, edit, save, delete, select, exit, và các mode.'
+  - [Nano](/computer/linux/nano-command) -- 'Các thao tác Nano cơ bản nhất: mở file, edit, save, search, cut, exit.'
 - **Network Internet**
   - [Network & Internet Cơ Bản](/computer/network-internet/network-internet-co-ban) -- Kiến thức cơ bản về mạng máy tính và internet, bao gồm ISP, DNS, địa chỉ IP và các giao thức mạng.
 - **System Admin**
   - [PAM](/computer/system-admin/pam) -- 'Kiến trúc, luồng hoạt động và các giải pháp PAM dùng trong doanh nghiệp để quản lý truy cập remote vào hệ thống máy chủ'
   - [Vdi](/computer/system-admin/vdi)
 - **Windows**
-  - [Mklink — Symbolic Link Trên Windows](/computer/windows/mklink) -- 'Cách tạo symbolic link (symlink) trên Windows bằng lệnh mklink — trỏ folder/file ảo đến vị trí thật'
-  - [Tạo Scheduled Task Trên Windows](/computer/windows/create-task) -- 'Hướng dẫn tạo task chạy định kỳ bằng Task Scheduler — ví dụ với script clean-temp.bat dọn dẹp temp hàng ngày'
+  - [Mklink](/computer/windows/mklink) -- 'Cách tạo symbolic link (symlink) trên Windows bằng lệnh mklink — trỏ folder/file ảo đến vị trí thật'
+  - [Tạo Task Windows](/computer/windows/create-task) -- 'Hướng dẫn tạo task chạy định kỳ bằng Task Scheduler — ví dụ với script clean-temp.bat dọn dẹp temp hàng ngày'
   - [RAM trên Windows](/computer/windows/RAM) -- 'Hiểu toàn diện về RAM trên Windows: physical memory, virtual memory, commit, pagefile, working set, cache, memory leak, cách đọc Task Manager và các công cụ chẩn đoán.'
   - [User, Group & Permission Trên Windows](/computer/windows/user-user-role-permission) -- 'Mô hình quản lý user, group, permission trên Windows và cách phân quyền thực tế cho một máy tính dùng chung trong gia đình.'
-  - [Dọn dẹp AppData trên Windows (An toàn & Hiệu quả)](/computer/windows/don-dep-appdata-windows) -- Hướng dẫn dọn dẹp thư mục AppData trên Windows an toàn, bao gồm cache ứng dụng, file tạm và dữ liệu còn sót lại sau khi uninstall.
+  - [Dọn dẹp AppData trên Windows](/computer/windows/don-dep-appdata-windows) -- Hướng dẫn dọn dẹp thư mục AppData trên Windows an toàn, bao gồm cache ứng dụng, file tạm và dữ liệu còn sót lại sau khi uninstall.
+  - [Excel Googlesheets](/computer/windows/excel-googlesheets)
 
 ---
 
@@ -52,7 +63,7 @@ description: "Bảng mục lục toàn bộ kiến thức"
   - [Collation & Character Set trong MySQL](/database/mysql/collation-charset) -- Tổng quan về character set và collation trong MySQL, cách kiểm tra và xử lý lỗi khi so sánh.
   - [Get database size](/database/mysql/get-size-database) -- Truy vấn lấy kích thước dữ liệu, index và tổng dung lượng của từng bảng trong database MySQL.
   - [Kiểm tra Collation MySQL](/database/mysql/kiem-tra-collation) -- Hướng dẫn xác định các bảng và cột trong MySQL không dùng collation utf8mb4_0900_as_ci.
-  - [Xử lý collation hỗn hợp trong MySQL](/database/mysql/xu-ly-collation-mix) -- Nguyên nhân, chẩn đoán và cách xử lý khi gặp tình trạng mix collation (connection/session, biến user-defined, TEXT vs VARCHAR).
+  - [Xử lý collation mix trong MySQL](/database/mysql/xu-ly-collation-mix) -- Nguyên nhân, chẩn đoán và cách xử lý khi gặp tình trạng mix collation (connection/session, biến user-defined, TEXT vs VARCHAR).
   - [Backup MySQL Database với mysqldump](/database/mysql/0-backup/dump-database) -- Script dump database MySQL tự động backup cấu trúc, procedures và triggers.
   - [Restore MySQL Database](/database/mysql/1-restore/restore-database) -- Khôi phục database MySQL từ file dump .sql bằng command mysql.
   - [Lỗi retrieval of the rsa public key is not enabled for insecure connections](/database/mysql/loi-retrieval-of-the-rsa-public-key-is-not-enabled-for-insecure-connections) -- Nguyên nhân và cách khắc phục lỗi RSA public key trong MySQL khi kết nối không an toàn.
