@@ -1,5 +1,5 @@
 ---
-title: Xử lý collation mix trong MySQL
+title: Illegal mix of collations
 description: Nguyên nhân, chẩn đoán và cách xử lý khi gặp tình trạng mix collation (connection/session, biến user-defined, TEXT vs VARCHAR).
 tags: [mysql, collation, connection, text, varchar]
 category: database
@@ -12,6 +12,35 @@ updated: 2026-07-04
 Trang này ghi lại kinh nghiệm xử lý các vấn đề liên quan đến collation khi:
 - Tạo data bằng stored procedure (procedure) lần đầu gặp lỗi, nhưng chạy lại thì lỗi biến mất.
 - Có sự khác nhau giữa `collation_connection` / `character_set_connection` và collation của bảng hoặc cột.
+
+## Khi nào gây ra lỗi này:
+
+Lỗi này chỉ xuất hiện khi MySQL phải so sánh hai chuỗi có collation khác nhau và không tìm được quy tắc chuyển đổi.
+
+```
+=
+<>
+<
+>
+<=
+>=
+
+LIKE
+
+IN (...)
+
+JOIN ... ON
+
+ORDER BY
+
+ORDER BY
+
+DISTINCT
+
+UNION
+
+..
+```
 
 ## Triệu chứng
 

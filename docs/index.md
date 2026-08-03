@@ -25,6 +25,7 @@ description: "Bảng mục lục toàn bộ kiến thức"
 ## 🤖 AI
 
 - [AI Coding Ecosystem](/AI/AI-coding-eco-system-overview) -- Tổng quan hệ sinh thái AI Coding từ Model, Runtime, API, Coding Agent đến IDE.
+- [AI Friendly Technology](/AI/AI-friendly) -- "Hướng dẫn chọn công nghệ và kiến trúc phù hợp cho sản phẩm AI-friendly"
 - **Agent**
   - [Claude Code Free](/AI/agent/claude-code-free) -- Hướng dẫn cấu hình Claude Code sử dụng model AI miễn phí thông qua OpenRouter thay vì dùng API key chính thức của Anthropic.
   - [AI Agent Coding](/AI/agent/list-agent-code) -- Danh sách các AI Coding Agent phổ biến, sắp xếp theo thời gian ra mắt, kèm rating, giá và tính năng chính.
@@ -63,7 +64,7 @@ description: "Bảng mục lục toàn bộ kiến thức"
   - [Collation & Character Set trong MySQL](/database/mysql/collation-charset) -- Tổng quan về character set và collation trong MySQL, cách kiểm tra và xử lý lỗi khi so sánh.
   - [Get database size](/database/mysql/get-size-database) -- Truy vấn lấy kích thước dữ liệu, index và tổng dung lượng của từng bảng trong database MySQL.
   - [Kiểm tra Collation MySQL](/database/mysql/kiem-tra-collation) -- Hướng dẫn xác định các bảng và cột trong MySQL không dùng collation utf8mb4_0900_as_ci.
-  - [Xử lý collation mix trong MySQL](/database/mysql/xu-ly-collation-mix) -- Nguyên nhân, chẩn đoán và cách xử lý khi gặp tình trạng mix collation (connection/session, biến user-defined, TEXT vs VARCHAR).
+  - [Illegal mix of collations](/database/mysql/xu-ly-collation-mix) -- Nguyên nhân, chẩn đoán và cách xử lý khi gặp tình trạng mix collation (connection/session, biến user-defined, TEXT vs VARCHAR).
   - [Backup MySQL Database với mysqldump](/database/mysql/0-backup/dump-database) -- Script dump database MySQL tự động backup cấu trúc, procedures và triggers.
   - [Restore MySQL Database](/database/mysql/1-restore/restore-database) -- Khôi phục database MySQL từ file dump .sql bằng command mysql.
   - [Lỗi retrieval of the rsa public key is not enabled for insecure connections](/database/mysql/loi-retrieval-of-the-rsa-public-key-is-not-enabled-for-insecure-connections) -- Nguyên nhân và cách khắc phục lỗi RSA public key trong MySQL khi kết nối không an toàn.
