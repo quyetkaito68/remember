@@ -52,6 +52,7 @@ description: "Bảng mục lục toàn bộ kiến thức"
   - [Mklink](/computer/windows/mklink) -- 'Cách tạo symbolic link (symlink) trên Windows bằng lệnh mklink — trỏ folder/file ảo đến vị trí thật'
   - [Tạo Task Windows](/computer/windows/create-task) -- 'Hướng dẫn tạo task chạy định kỳ bằng Task Scheduler — ví dụ với script clean-temp.bat dọn dẹp temp hàng ngày'
   - [RAM trên Windows](/computer/windows/RAM) -- 'Hiểu toàn diện về RAM trên Windows: physical memory, virtual memory, commit, pagefile, working set, cache, memory leak, cách đọc Task Manager và các công cụ chẩn đoán.'
+  - [Windows Startup App](/computer/windows/startup-app) -- 'Các cơ chế khởi động ứng dụng cùng Windows — Startup folder, Registry Run, Task Scheduler, Autoruns'
   - [User, Group & Permission Trên Windows](/computer/windows/user-user-role-permission) -- 'Mô hình quản lý user, group, permission trên Windows và cách phân quyền thực tế cho một máy tính dùng chung trong gia đình.'
   - [Dọn dẹp AppData trên Windows](/computer/windows/don-dep-appdata-windows) -- Hướng dẫn dọn dẹp thư mục AppData trên Windows an toàn, bao gồm cache ứng dụng, file tạm và dữ liệu còn sót lại sau khi uninstall.
   - [Excel Googlesheets](/computer/windows/excel-googlesheets)
