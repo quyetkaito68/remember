@@ -15,7 +15,7 @@ order: 2
 
 ## Tổng quan
 
-| Cơ chế | Độ phức tạp | Uy quyền Admin | Chạy khi chưa login | Phù hợp |
+| Cơ chế | Độ phức tạp | Ủy quyền Admin | Chạy khi chưa login | Phù hợp |
 |--------|:-----------:|:--------------:|:--------------------:|----------|
 | **Startup folder** | ★☆☆ | Không | Không | App cá nhân, chạy nhanh |
 | **Registry Run** | ★★☆ | Không (HKCU) / Có (HKLM) | Không | App cần registry-based startup |

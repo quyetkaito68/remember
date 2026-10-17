@@ -114,6 +114,8 @@ description: "Bảng mục lục toàn bộ kiến thức"
   - [33 Performance Optimization](/developer/browsers-and-chrome-devtools/33-performance-optimization)
   - [34 Debugging Guide](/developer/browsers-and-chrome-devtools/34-debugging-guide)
   - [35 Case Studies](/developer/browsers-and-chrome-devtools/35-case-studies)
+- **Dev Skills**
+  - [Polling API từ Console](/developer/dev-skills/fetch-api) -- Cách gọi fetch liên tục từ Chrome DevTools Console để kiểm tra health endpoint
 - **Jmetter**
   - [JMeter — Chạy Test Plan Với jmeter-run.bat](/developer/jmetter/jmeter-run) -- 'Sử dụng file jmeter-run.bat để chạy JMeter non-GUI với test plan có sẵn, tự động sinh HTML report'
   - [JMeter — Tạo Test Plan Cơ Bản](/developer/jmetter/jmeter-plan) -- 'Hướng dẫn tạo test plan JMeter từ A-Z: record request, xử lý dữ liệu, trích xuất kết quả và sinh data'
@@ -162,6 +164,7 @@ description: "Bảng mục lục toàn bộ kiến thức"
 ## 🌿 Git
 
 - [Git Commands — Các lệnh Git hay dùng nhất](/git/git-command) -- 'Danh sách các lệnh Git thông dụng nhất: branch, commit, reset, restore, conflict, credential — kèm giải thích ngắn gọn.'
+- [Git nâng cao](/git/git-advanced) -- 'Ghi chú về cách Git lưu dữ liệu trong .git, hiệu năng trên Windows và cách chỉ xem thay đổi trong thư mục hiện tại.'
 - [Hướng dẫn sử dụng Git](/git/git-guide) -- Hướng dẫn cơ bản về Git, từ khởi tạo repository, cấu hình người dùng đến đẩy mã nguồn lên GitHub.
 - [Triển khai ứng dụng React + Vite lên GitHub Pages](/git/github-page) -- Hướng dẫn triển khai ứng dụng React TypeScript với Vite lên GitHub Pages sử dụng GitHub Actions CI/CD.
 

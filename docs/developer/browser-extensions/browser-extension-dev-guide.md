@@ -203,6 +203,22 @@ Safari yêu cầu thêm bước convert sang Safari Web Extension bằng Xcode. 
 | 7 | Performance | Không gây lag, không memory leak |
 | 8 | Security | Không hardcode API key, không eval() |
 
+[ ] Manifest V3
+[ ] version = 1.0.0
+[ ] name
+[ ] description
+[ ] icon 16/48/128
+[ ] không có file thừa
+[ ] không có API key / password / secret
+[ ] không có console.log nhạy cảm
+[ ] kiểm tra permissions
+[ ] kiểm tra host_permissions
+[ ] test extension sau khi Reload
+[ ] test trên một Chrome profile sạch
+[ ] ZIP đúng cấu trúc
+[ ] chuẩn bị screenshot
+[ ] chuẩn bị privacy declaration
+
 ---
 
 ## Native Messaging (Bonus)
