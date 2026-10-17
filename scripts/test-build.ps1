@@ -22,7 +22,7 @@ function Test-Build {
 }
 
 function Stop-DevServer {
-    $ports = @(5173, 4173, 3000)
+    $ports = @(6868, 5173, 4173, 3000)
     foreach ($port in $ports) {
         $connections = Get-NetTCPConnection -LocalPort $port -ErrorAction SilentlyContinue
         foreach ($conn in $connections) {

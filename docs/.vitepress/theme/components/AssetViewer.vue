@@ -12,7 +12,7 @@
         <img :src="asset.url" :alt="asset.name" style="max-width:100%" />
       </template>
       <template v-else-if="isPdf">
-        <embed :src="asset.url" type="application/pdf" width="100%" height="600px" />
+        <embed :src="asset.rawUrl || asset.url" type="application/pdf" width="100%" height="600px" />
       </template>
       <template v-else-if="isVideo">
         <video controls style="max-width:100%"><source :src="asset.url"></video>

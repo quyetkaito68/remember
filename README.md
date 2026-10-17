@@ -35,6 +35,8 @@ Run local development server:
 npm run dev
 ```
 
+The site is available at `http://localhost:6868`.
+
 Build the site:
 
 ```bash

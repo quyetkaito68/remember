@@ -121,6 +121,10 @@ description: "Bảng mục lục toàn bộ kiến thức"
   - [JMeter — Tạo Test Plan Cơ Bản](/developer/jmetter/jmeter-plan) -- 'Hướng dẫn tạo test plan JMeter từ A-Z: record request, xử lý dữ liệu, trích xuất kết quả và sinh data'
   - [Performance Test — Kiến thức nền tảng & Các loại kiểm thử](/developer/jmetter/performance-test-beginner) -- 'Tổng hợp khái niệm CCU, Tenant, User, Request; công thức tính toán; mối liên hệ CCU-Thread trong JMeter; các kiểu kiểm thử performance và những điểm quan trọng thường bị bỏ sót'
   - [Bài toán Performance Test — AMIS Kiểm toán SaaS](/developer/jmetter/performance-test-example) -- 'Bài toán thực tế: xác định quy mô user/tenant, tính CCU, thiết kế kịch bản kiểm thử hiệu năng cho phần mềm kiểm toán SaaS với bzm - Concurrency Thread Group, cấu hình JMeter và thời gian chạy cụ thể'
+- **Misa Document**
+  - [Tối Ưu Hiệu Năng Frontend](/developer/misa-document/performance-front-end) -- Checklist tối ưu tải trang, Vue, JavaScript và request API.
+  - [Tối Ưu Hiệu Năng Backend](/developer/misa-document/performance-backend) -- Ghi chú tối ưu xử lý, truy vấn, truyền tải dữ liệu và tác vụ nền.
+  - [Hiệu Năng Database](/developer/misa-document/database-performance-tips) -- Ghi chú thiết kế index, đọc execution plan và tối ưu truy vấn MySQL.
 - **Nodejs And Npm**
   - [Node.js, npm và quản lý version](/developer/nodejs-and-npm/nodejs-and-npm) -- Cài đặt Node.js, npm, quản lý nhiều version với nvm/Volta/fnm, và xử lý lỗi thường gặp
 - **Performance**

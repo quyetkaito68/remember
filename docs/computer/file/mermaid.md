@@ -390,7 +390,7 @@ Dự án, planning, timeline.
         dateFormat YYYY-MM-DD
 
         section Planning
-        Nghiên cứu需求    :a1, 2026-07-01, 7d
+        Nghiên cứu    :a1, 2026-07-01, 7d
         Thiết kế          :a2, after a1, 5d
 
         section Development

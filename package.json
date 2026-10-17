@@ -8,7 +8,7 @@
     "generate-toc": "node scripts/generate-toc.js",
     "generate-assets": "node scripts/generate-assets.js",
     "generate": "npm run generate-toc && npm run generate-assets",
-    "dev": "npm run generate && vitepress dev docs",
+    "dev": "npm run generate && vitepress dev docs --port 6868 --strictPort",
     "build": "npm run generate && vitepress build docs",
     "serve": "vitepress serve docs",
     "preview": "vitepress preview docs"
