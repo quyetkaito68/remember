@@ -92,7 +92,7 @@ async function main() {
 
     let route
     if (rel.endsWith('/index.md')) {
-      route = '/' + rel.replace(/\/index\.md$/, '')
+      route = '/' + rel.replace(/\/index\.md$/, '') + '/'
     } else {
       route = '/' + rel.replace(/\.md$/, '')
     }

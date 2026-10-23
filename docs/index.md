@@ -74,6 +74,10 @@ description: "Bảng mục lục toàn bộ kiến thức"
 
 ## 🛠️ Developer
 
+- **1 Front End**
+  - [1.FrontEnd](/developer/1-front-end/) -- "Ghi chú về các công cụ và kiến thức frontend"
+  - [NPM Dependencies](/developer/1-front-end/dependencies) -- "Phân biệt dependencies, devDependencies, peerDependencies và chẩn đoán lỗi cài đặt, resolve thư viện bằng npm"
+  - [NPM Version Ranges](/developer/1-front-end/dependencies-version) -- "Cách đọc Semantic Versioning, hiểu version range trong package.json và kiểm soát phiên bản npm thực sự cài"
 - **Browser Extensions**
   - [Tổng Quan Browser Extension](/developer/browser-extensions/browser-extension-overview) -- Giới thiệu toàn diện về browser extension — kiến trúc, khả năng, hạn chế, framework và stack phát triển năm 2026
   - [Hướng Dẫn Phát Triển & Publish Browser Extension](/developer/browser-extensions/browser-extension-dev-guide) -- Cách cấu trúc project, test tại local, và publish extension lên Chrome Web Store, Firefox Add-ons, Edge Add-ons

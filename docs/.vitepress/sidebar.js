@@ -96,14 +96,14 @@ function buildSidebar(directory, route = '') {
         items: childItems,
       }
       if (fs.existsSync(indexFile)) {
-        group.link = normalizeLink(`/${route}/${entry.name}/`)
+        group.link = `${normalizeLink(`/${route}/${entry.name}/`)}/`
       }
       groups.push(group)
       continue
     }
 
     if (!entry.name.endsWith('.md')) continue
-    if (entry.name === 'index.md' && route === '') continue
+    if (entry.name === 'index.md') continue
 
     const metadata = readFrontmatter(entryPath)
     if (metadata.hideFromSidebar === 'true') continue
